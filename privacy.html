@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy — Currency Converter &amp; Units</title>
+<title>Privacy Policy — Currency Converter + Units</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
 
 <header>
   <h1>Privacy Policy</h1>
-  <p class="meta">Currency Converter &amp; Units · Last updated 12 August 2026</p>
+  <p class="meta">Currency Converter + Units · Last updated 3 October 2026</p>
 </header>
 
 <div class="lede">
@@ -20,7 +20,7 @@
 </div>
 
 <h2>1. Who we are</h2>
-<p>Currency Converter &amp; Units ("the app") is developed and published by Ikramul Murad ("we", "us").
+<p>Currency Converter + Units ("the app") is developed and published by Ikramul Murad ("we", "us").
 You can reach us at <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 
 <h2>2. Information we do not collect</h2>
@@ -53,16 +53,26 @@ never leaves your device, and we have no way to read it.</p>
 <p>You can erase all of it at any time: use <strong>Settings → Reset to Defaults</strong> inside the app,
 or delete the app from your device, which removes everything it stored.</p>
 
-<h2>4. Exchange rate providers</h2>
-<p>To show current rates, the app requests publicly available rate data from:</p>
+<h2>4. How exchange rates reach the app</h2>
+<p>The app does not contact the rate providers directly. It asks a small server we run — a Google
+Cloud Function hosted in Singapore — which fetches current rates and caches them, so that every
+user is served from one shared copy instead of each device querying the providers separately.</p>
+
+<p>That server collects the rates from:</p>
 <ul>
   <li><a href="https://github.com/fawazahmed0/exchange-api" rel="noopener">the Currency API</a>, delivered through the jsDelivr CDN</li>
-  <li><a href="https://www.exchangerate-api.com/" rel="noopener">ExchangeRate-API</a>, used only as a fallback if the first request fails</li>
+  <li><a href="https://www.exchangerate-api.com/" rel="noopener">ExchangeRate-API</a>, used as a fallback if the first request fails</li>
 </ul>
-<p>These requests contain only a currency code. They carry no name, no identifier and nothing you
-typed into the app. As with any internet request, the provider can see the IP address your request
-comes from, which is a normal part of how the internet works and is not something we collect,
-receive or store. Those providers handle that data under their own privacy policies.</p>
+<p>Because the fetching happens on our server, the providers see requests from us, not from you.</p>
+
+<p>The request your app makes to our server contains <strong>only a currency code</strong> — no name,
+no account, no device identifier, and nothing you typed into the app. We keep no user records and no
+database of people: there is nothing stored that could say which request came from whom.</p>
+
+<p>As with any web server, ours automatically records technical request logs that include the IP
+address a request came from. This is standard infrastructure logging handled by Google Cloud, kept
+for a short period and then discarded. We do not read it to identify anyone, do not link it to a
+person, do not use it for analytics, advertising or tracking, and do not share or sell it.</p>
 
 <h2>5. Maps</h2>
 <p>The "Nearby ATMs" and "Nearby Currency Exchange" options do not use your location. Tapping them
@@ -88,7 +98,7 @@ personal information from anyone, we do not knowingly collect it from children e
 
 <h2>9. Your rights</h2>
 <p>Privacy laws such as the GDPR (Europe and the UK) and the CCPA (California) give you the right to
-access, correct, export or delete the personal data a company holds about you. We hold none, so
+access, correct, export or delete the personal data a company holds about you. Apart from the short-lived server logs described in section 4, we hold none, so
 there is nothing for us to retrieve or erase on your behalf. The data described in section 3 is on
 your device and fully under your control. We do not sell or share personal information, because we
 do not have any.</p>
