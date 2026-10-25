@@ -11,103 +11,144 @@
 
 <header>
   <h1>Privacy Policy</h1>
-  <p class="meta">Currency Converter + Units · Last updated 3 October 2026</p>
+  <p class="meta">Currency Converter + Units · Last updated 25 October 2026</p>
 </header>
 
 <div class="lede">
-  <p><strong>Short version:</strong> this app does not collect your personal data. There is no
-  account, no sign-in, no analytics and no advertising. Everything you enter stays on your device.</p>
+  <p><strong>Short version:</strong> there is no account, no sign-in, no analytics, no advertising and
+  no tracking. Your conversions, settings and lists stay on your device. Only if you use rate alerts
+  or buy Pro does the app send limited data to our own server, described in sections 5 and 6. You can
+  delete it from Settings.</p>
 </div>
 
 <h2>1. Who we are</h2>
-<p>Currency Converter + Units ("the app") is developed and published by Ikramul Murad ("we", "us").
+<p>Currency Converter + Units ("the app") is developed and published by Jannatul Ferdous Laboni ("we", "us").
 You can reach us at <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 
 <h2>2. Information we do not collect</h2>
 <p>We do not ask for, receive or store any of the following:</p>
 <ul>
-  <li>Your name, email address, phone number or postal address</li>
+  <li>Your name, email address, phone number or postal address (unless you choose to email us, in which case we receive your email address and what you write)</li>
   <li>Any account or login — the app has none</li>
   <li>Payment card or billing information</li>
-  <li>Your location</li>
+  <li>Your location. The app does not use location services. Your IP address appears briefly in server logs (see section 4), and we do not use it to find where you are.</li>
   <li>Contacts, photos, camera, microphone or health data</li>
-  <li>Advertising identifiers (IDFA) or any cross-app tracking identifier</li>
+  <li>Advertising identifiers (IDFA) or any cross-app tracking identifier. The random install ID used for rate alerts (section 5) is created by the app, is never shared with anyone else and is not used for tracking.</li>
 </ul>
 <p>The app contains no analytics SDK, no advertising SDK and no crash-reporting SDK. Because we
 do not track you across apps or websites owned by other companies, the app never shows the
 App Tracking Transparency prompt.</p>
 
 <h2>3. Information stored on your device</h2>
-<p>The app saves the following on your device only, so that it works the way you left it. This data
-never leaves your device, and we have no way to read it.</p>
+<p>The app saves the following on your device, so that it works the way you left it. We cannot read
+it. What is also sent to our server is described in sections 5 and 6.</p>
 
 <table>
   <tr><th>What is stored</th><th>Why</th></tr>
-  <tr><td>Recently downloaded exchange rates</td><td>So conversion keeps working without an internet connection</td></tr>
+  <tr><td>Recently downloaded exchange rates and rate history</td><td>So conversion and charts keep working without an internet connection</td></tr>
   <tr><td>Your default base currency</td><td>So you do not have to pick it every time</td></tr>
   <tr><td>Your selected currency list and saved favourites</td><td>To restore your list when you reopen the app</td></tr>
+  <tr><td>Custom rates you enter (Pro)</td><td>To use your own rates in conversions</td></tr>
   <tr><td>App preferences (display, refresh interval, speech speed)</td><td>To keep your settings</td></tr>
-  <tr><td>A daily counter of free conversions</td><td>To apply the free usage limit</td></tr>
+  <tr><td>Onboarding and review-prompt flags</td><td>To show the welcome screens and the review request only once</td></tr>
+  <tr><td>A random install ID and secret, kept in the device Keychain</td><td>Used only for rate alerts (see section 5)</td></tr>
 </table>
 
-<p>You can erase all of it at any time: use <strong>Settings → Reset to Defaults</strong> inside the app,
-or delete the app from your device, which removes everything it stored.</p>
+<p>The home-screen widget reads the same rates from a container shared between the app and the widget
+on your device.</p>
+
+<p><strong>Settings → Reset to Defaults</strong> resets display settings only. Deleting the app removes
+what it stored, except the Keychain install ID and secret. iOS keeps those on the same device so your
+rate alerts still work after a reinstall. <strong>Settings → Rate Alerts → Delete Alerts &amp; Server Data</strong>
+removes them, and the server data too.</p>
 
 <h2>4. How exchange rates reach the app</h2>
-<p>The app does not contact the rate providers directly. It asks a small server we run — a Google
-Cloud Function hosted in Singapore — which fetches current rates and caches them, so that every
-user is served from one shared copy instead of each device querying the providers separately.</p>
+<p>The app does not contact the rate providers directly. It asks a small server we run: a Cloudflare
+Worker. Cloudflare, Inc. acts as our hosting provider and processor. The server fetches rates and
+caches them, so every user is served from one shared copy.</p>
 
-<p>That server collects the rates from:</p>
+<p>The server uses these sources, in this order:</p>
 <ul>
-  <li><a href="https://github.com/fawazahmed0/exchange-api" rel="noopener">the Currency API</a>, delivered through the jsDelivr CDN</li>
-  <li><a href="https://www.exchangerate-api.com/" rel="noopener">ExchangeRate-API</a>, used as a fallback if the first request fails</li>
+  <li><a href="https://www.exchangerate-api.com/" rel="noopener">ExchangeRate-API</a> (open.er-api.com): the primary source of live rates</li>
+  <li><a href="https://github.com/fawazahmed0/exchange-api" rel="noopener">Currency API</a> (fawazahmed0, served via Cloudflare and jsDelivr): the backup source for live rates, the source for precious metals and crypto, and the only source for rate history charts</li>
+  <li><a href="https://www.ecb.europa.eu/" rel="noopener">European Central Bank</a> reference rates: used only on the server as a cross-check. A rate table more than 5% off the ECB is rejected. ECB figures are never shown to you.</li>
 </ul>
-<p>Because the fetching happens on our server, the providers see requests from us, not from you.</p>
+<p>All three are called by our server, never by your device. They see requests from us, not from you.
+The widget fetches rates the same way.</p>
 
-<p>The request your app makes to our server contains <strong>only a currency code</strong> — no name,
-no account, no device identifier, and nothing you typed into the app. We keep no user records and no
-database of people: there is nothing stored that could say which request came from whom.</p>
+<p>A rate request contains <strong>only a currency code</strong>. It has no identifier and nothing you
+typed into the app.</p>
 
-<p>As with any web server, ours automatically records technical request logs that include the IP
-address a request came from. This is standard infrastructure logging handled by Google Cloud, kept
-for a short period and then discarded. We do not read it to identify anyone, do not link it to a
-person, do not use it for analytics, advertising or tracking, and do not share or sell it.</p>
+<p>Like any web service, Cloudflare automatically records technical request logs that include the IP
+address a request came from. We keep these logs only for a few days (Cloudflare Workers Logs). We use
+them only to run and protect the service. To limit abuse, our server briefly counts requests per IP
+address, and this count is not stored. We do not use the logs to identify anyone, for analytics,
+advertising or tracking, and we do not share or sell them.</p>
 
-<h2>5. Maps</h2>
+<h2>5. Rate alerts and notifications</h2>
+<p>This section applies only if you create a rate alert. We then store the following on our server, in
+a Cloudflare D1 database:</p>
+
+<table>
+  <tr><th>What is stored</th><th>Why</th></tr>
+  <tr><td>A random install ID created on your device, and a one-way hash of a random secret. Your device sends the secret with each request to prove it is yours; our server stores only the hash.</td><td>So only your device can see or change its alerts</td></tr>
+  <tr><td>Your Apple push notification token, only if you allow notifications</td><td>To deliver the alert</td></tr>
+  <tr><td>Each alert's currency pair, target rate and direction (above or below), whether it repeats, and when it last fired</td><td>To check it against rates every hour</td></tr>
+</table>
+
+<p>We do not store your name, email, Apple Account or location. The install ID is not written to
+server logs. Push notifications are delivered through Apple Push Notification service, and
+<a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's privacy policy</a> applies to it.</p>
+
+<p><strong>Retention.</strong> Alerts stay until you delete them. A one-time alert is deleted after it
+fires. Data for a device that never allowed notifications is deleted automatically after 30 days. If
+Apple reports that a push token is no longer valid, for example because the app was deleted, that
+device's data is removed.</p>
+
+<h2>6. Subscriptions and payments</h2>
+<p>Purchases are made and processed by Apple through the App Store. We never see your card details,
+billing address or Apple Account information.</p>
+
+<p>If you buy Pro (subscription or lifetime), the app sends our server Apple's
+signed proof of purchase. The server checks Apple's signature. It keeps only the original transaction
+ID, the product, the expiry date and whether it was refunded. These are linked to the install IDs that
+use the purchase, at most 10 devices per purchase. We use this only to decide how many rate alerts you
+can have: 1 free, up to 50 with Pro. These purchase records are kept while a device uses them. Delete Alerts &amp; Server Data removes this device's link, and the record itself if no other device uses it.</p>
+
+<p>Apple also notifies our server when a subscription renews, expires or is refunded (App Store Server
+Notifications). These notices contain no payment details. Apple's handling of purchase data is
+governed by the <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple Privacy Policy</a>.</p>
+
+<h2>7. Maps</h2>
 <p>The "Nearby ATMs" and "Nearby Currency Exchange" options do not use your location. Tapping them
 opens Apple Maps or Google Maps with a text search such as "Nearby ATMs". Anything that happens
-after that — including how those apps use your location — is covered by
+after that, including how those apps use your location, is covered by
 <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's</a> or
 <a href="https://policies.google.com/privacy" rel="noopener">Google's</a> privacy policy, not ours.</p>
 
-<h2>6. Subscriptions and payments</h2>
-<p>Optional Pro subscriptions are sold and processed entirely by Apple through the App Store. Payment
-happens inside Apple's system: we never see or receive your card details, billing address or
-Apple Account information. The app only receives a yes-or-no answer from Apple about whether a
-valid subscription is active. Apple's handling of purchase data is governed by the
-<a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple Privacy Policy</a>.</p>
-
-<h2>7. Speech</h2>
+<h2>8. Speech</h2>
 <p>The read-aloud feature uses the speech voices built into iOS to speak results out loud. It only
-produces sound — it does not listen, does not use the microphone, and records nothing.</p>
+produces sound. It does not listen, does not use the microphone, and records nothing.</p>
 
-<h2>8. Children</h2>
-<p>The app is a general-purpose utility and is not directed at children under 13. Since we collect no
-personal information from anyone, we do not knowingly collect it from children either.</p>
+<h2>9. Children</h2>
+<p>The app is a general-purpose utility and is not directed at children under 13. We do not knowingly
+collect personal information from children.</p>
 
-<h2>9. Your rights</h2>
+<h2>10. Deleting your data and your rights</h2>
 <p>Privacy laws such as the GDPR (Europe and the UK) and the CCPA (California) give you the right to
-access, correct, export or delete the personal data a company holds about you. Apart from the short-lived server logs described in section 4, we hold none, so
-there is nothing for us to retrieve or erase on your behalf. The data described in section 3 is on
-your device and fully under your control. We do not sell or share personal information, because we
-do not have any.</p>
+access, correct, export or delete the personal data a company holds about you.</p>
+<p>Data on your device is under your control (see section 3). For data on our server, use
+<strong>Settings → Rate Alerts → Delete Alerts &amp; Server Data</strong>. This immediately deletes your
+alerts, push registration, install credential and purchase links from our server. The app then forgets
+its install ID. You can also email us at
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+<p>We do not sell or share personal information.</p>
 
-<h2>10. Changes to this policy</h2>
+<h2>11. Changes to this policy</h2>
 <p>If this policy changes, the updated version will be posted on this page with a new date at the top.
 Material changes will also be noted in the app's release notes on the App Store.</p>
 
-<h2>11. Contact</h2>
+<h2>12. Contact</h2>
 <p>Questions about this policy? Write to
 <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 
