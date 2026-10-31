@@ -84,7 +84,7 @@ avez saisi dans l’application.</p>
 <p>Comme tout service Web, Cloudflare enregistre automatiquement des journaux techniques des requêtes qui comprennent l’adresse IP
 d’où provient une requête. Nous ne conservons ces journaux que quelques jours (Cloudflare Workers Logs). Nous les utilisons
 uniquement pour exploiter et protéger le service. Pour limiter les abus, notre serveur compte brièvement les requêtes par adresse
-IP, et ce compte n’est pas conservé. Nous n’utilisons pas les journaux pour identifier qui que ce soit, ni à des fins d’analyse,
+IP (pour IPv6, par bloc réseau /64), et ce compte n’est pas conservé. Il compte aussi, par jour, combien d’alertes de taux gratuites sont créées depuis chaque réseau (une adresse IPv4 ou un /64 IPv6). Ce compte est conservé au plus une journée, sous une empreinte à sens unique produite avec une valeur aléatoire qui change chaque jour. Le compte et cette valeur sont supprimés à la fin de la journée. Nous n’utilisons pas les journaux pour identifier qui que ce soit, ni à des fins d’analyse,
 de publicité ou de suivi, et nous ne les communiquons ni ne les vendons.</p>
 
 <h2>5. Alertes de taux et notifications</h2>
@@ -164,6 +164,7 @@ décrites aux sections 5 et 6. Coordonnées&nbsp;:
   <li>Taux de change et graphiques&nbsp;: aucune donnée personnelle n’est envoyée. Les requêtes de taux ne comportent aucun identifiant; aucune base légale n’est donc nécessaire.</li>
   <li>Alertes de taux, identifiant d’installation et secret, jeton de notification poussée et paramètres de vos alertes&nbsp;: exécution du service que vous avez demandé (contrat). Nous n’envoyons des notifications que si vous les autorisez dans iOS.</li>
   <li>Vérification et association des achats Pro&nbsp;: contrat, et notre intérêt légitime à prévenir l’usage abusif de la limite d’alertes.</li>
+  <li>Prévention des abus (comptes de requêtes par réseau et compte quotidien des alertes de taux gratuites)&nbsp;: notre intérêt légitime à prévenir les abus du service.</li>
   <li>Données de votre appareil&nbsp;: nous ne les traitons pas.</li>
 </ul>
 

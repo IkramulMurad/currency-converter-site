@@ -85,7 +85,7 @@ typed into the app.</p>
 <p>Like any web service, Cloudflare automatically records technical request logs that include the IP
 address a request came from. We keep these logs only for a few days (Cloudflare Workers Logs). We use
 them only to run and protect the service. To limit abuse, our server briefly counts requests per IP
-address, and this count is not stored. We do not use the logs to identify anyone, for analytics,
+address (for IPv6, per /64 network block), and this count is not stored. It also counts how many free rate alerts are created from each network (an IPv4 address or an IPv6 /64) per day. That count is stored for at most a day under a one-way hash made with a random value that changes daily. The count and that value are deleted after the day. We do not use the logs to identify anyone, for analytics,
 advertising or tracking, and we do not share or sell them.</p>
 
 <h2>5. Rate alerts and notifications</h2>
@@ -165,6 +165,7 @@ described in sections 5 and 6. Contact:
   <li>Exchange rates and charts: no personal data is sent. Rate requests carry no identifier, so no legal basis is needed.</li>
   <li>Rate alerts, the install ID and secret, your push token and your alert settings: performance of the service you asked for (contract). We send notifications only if you allow them in iOS.</li>
   <li>Verifying and linking Pro purchases: contract, and our legitimate interest in preventing misuse of the alert limit.</li>
+  <li>Limiting abuse (per-network request counts and the daily count of free rate alerts): our legitimate interest in preventing abuse of the service.</li>
   <li>Data on your device: we do not process it.</li>
 </ul>
 
