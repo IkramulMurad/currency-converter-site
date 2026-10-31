@@ -124,7 +124,7 @@ signed proof of purchase. The server checks Apple's signature. It keeps only the
 ID, the product, the expiry date and whether it was refunded. Each time the app refreshes your Pro
 status, it also sends your install ID and secret, so the purchase can be linked to this install. These
 are linked to the install IDs that use the purchase, at most 10 devices per purchase. We use this only to decide how many rate alerts you
-can have: 1 free, up to 50 with Pro. These purchase records are kept while a device uses them. Delete Alerts &amp; Server Data removes this device's link, and the record itself if no other device uses it.</p>
+can have: 1 free, up to 50 with Pro. These purchase records are kept while a device uses them. Delete Alerts &amp; Server Data removes this device's link, and the record itself if no other device uses it. A record of a refunded or revoked purchase is kept, with no link to any device, so that deleting data cannot undo a refund.</p>
 
 <p>Apple also notifies our server when a subscription renews, expires or is refunded (App Store Server
 Notifications). These notices contain no payment details. Apple's handling of purchase data is
@@ -150,7 +150,7 @@ collect personal information from children.</p>
 access, correct, export or delete the personal data a company holds about you.</p>
 <p>Data on your device is under your control (see section 3). For data on our server, use
 <strong>Settings → Delete Alerts &amp; Server Data</strong> (in the Rate Alerts section). This immediately deletes your
-alerts, push registration, install credential and purchase links from our server. The app then forgets
+alerts, push registration, install credential and purchase links from our server. The one exception is the record of a refunded or revoked purchase, which has no link to any device and is kept (section 6). The app then forgets
 its install ID. You can also email us at
 <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 <p>We do not sell or share personal information.</p>
@@ -169,7 +169,7 @@ described in sections 5 and 6. Contact:
 </ul>
 
 <p><strong>How long we keep it.</strong> As described in sections 5 and 6. Settings → Delete Alerts &amp; Server Data
-deletes it.</p>
+deletes it, except a refund record (section 6).</p>
 
 <p><strong>Transfers outside your country.</strong> Our server runs on Cloudflare, which may process data in
 the United States and other countries. Cloudflare relies on the EU Standard Contractual Clauses and the
