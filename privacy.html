@@ -101,7 +101,7 @@ the purchase can be linked to your device (section 6):</p>
   <tr><th>What is stored</th><th>Why</th></tr>
   <tr><td>A random install ID created on your device, and a one-way hash of a random secret. Your device sends the secret with each request to prove it is yours; our server stores only the hash.</td><td>So only your device can see or change its alerts</td></tr>
   <tr><td>Your Apple push notification token, only if you allow notifications</td><td>To deliver the alert</td></tr>
-  <tr><td>The decimal and grouping separators of your number format (for example "." and ","), stored with your device record</td><td>To format numbers in notifications the way you read them</td></tr>
+  <tr><td>The decimal and grouping separators of your number format (for example "." and ","), and whether four-digit numbers are grouped (for example 1,234 or 1234), stored with your device record</td><td>To format numbers in notifications the way you read them</td></tr>
   <tr><td>Each alert's currency pair, target rate and direction (above or below), whether it repeats, and when it last fired</td><td>To check it against rates every hour</td></tr>
 </table>
 

@@ -100,7 +100,7 @@ la compra pueda vincularse a tu dispositivo (sección 6):</p>
   <tr><th>Qué se almacena</th><th>Por qué</th></tr>
   <tr><td>Un ID de instalación aleatorio creado en tu dispositivo y un hash unidireccional de un secreto aleatorio. Tu dispositivo envía el secreto con cada solicitud para demostrar que es tuyo; nuestro servidor almacena solo el hash.</td><td>Para que solo tu dispositivo pueda ver o cambiar sus alertas</td></tr>
   <tr><td>Tu token de notificaciones push de Apple, solo si permites las notificaciones</td><td>Para entregar la alerta</td></tr>
-  <tr><td>Los separadores decimal y de miles de tu formato de números (por ejemplo "." y ","), almacenados con el registro de tu dispositivo</td><td>Para dar formato a los números de las notificaciones como los lees</td></tr>
+  <tr><td>Los separadores decimal y de miles de tu formato de números (por ejemplo "." y ","), y si los números de cuatro cifras llevan separador de miles (por ejemplo 1.234 o 1234), almacenados con el registro de tu dispositivo</td><td>Para dar formato a los números de las notificaciones como los lees</td></tr>
   <tr><td>El par de monedas de cada alerta, el tipo de cambio objetivo y la dirección (por encima o por debajo), si se repite y cuándo se activó por última vez</td><td>Para compararla con los tipos de cambio cada hora</td></tr>
 </table>
 
