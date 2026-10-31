@@ -82,9 +82,12 @@ El widget obtiene los tipos de la misma manera.</p>
 <p>Una solicitud de tipos de cambio contiene <strong>solo un código de moneda</strong>. No tiene ningún identificador ni nada de lo que
 hayas escrito en la app.</p>
 
-<p>Como cualquier servicio web, Cloudflare registra automáticamente registros técnicos de las solicitudes que incluyen la dirección
-IP desde la que se hizo cada una. Conservamos estos registros solo unos días (Cloudflare Workers Logs). Los usamos
-únicamente para operar y proteger el servicio. Para limitar los abusos, nuestro servidor cuenta brevemente las solicitudes por dirección
+<p>Como cualquier servicio web, Cloudflare, nuestro proveedor de alojamiento, trata la dirección IP desde la que llega cada
+solicitud para poder entregarla, y puede conservar registros técnicos de red conforme a sus propias políticas. Desactivamos los registros
+automáticos por solicitud de nuestro Worker de Cloudflare (registros de invocación), de modo que los encabezados de las solicitudes,
+incluidos el ID de instalación y su secreto, no se anotan en ellos. Los registros que sí conservamos (Cloudflare Workers Logs, solo unos días)
+contienen los mensajes propios de nuestro servidor, como errores y el número de filas eliminadas, que se escriben sin el ID de instalación,
+el secreto, el token push ni la dirección IP. Los usamos únicamente para operar y proteger el servicio. Para limitar los abusos, nuestro servidor cuenta brevemente las solicitudes por dirección
 IP (en IPv6, por bloque de red /64), y ese conteo no se almacena. También cuenta, por día, cuántas alertas de tipo de cambio gratuitas se crean desde cada red (una dirección IPv4 o un /64 de IPv6). Ese conteo se almacena como máximo un día, bajo un hash unidireccional hecho con un valor aleatorio que cambia cada día. El conteo y ese valor se eliminan al terminar el día. No usamos los registros para identificar a nadie, ni para analítica,
 publicidad o rastreo, y no los compartimos ni los vendemos.</p>
 

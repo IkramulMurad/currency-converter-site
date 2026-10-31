@@ -81,9 +81,12 @@ Le widget récupère les taux de la même façon.</p>
 <p>Une requête de taux ne contient <strong>qu’un code de devise</strong>. Elle ne comporte aucun identifiant et rien de ce que vous
 avez saisi dans l’application.</p>
 
-<p>Comme tout service Web, Cloudflare enregistre automatiquement des journaux techniques des requêtes qui comprennent l’adresse IP
-d’où provient une requête. Nous ne conservons ces journaux que quelques jours (Cloudflare Workers Logs). Nous les utilisons
-uniquement pour exploiter et protéger le service. Pour limiter les abus, notre serveur compte brièvement les requêtes par adresse
+<p>Comme tout service Web, Cloudflare, notre hébergeur, traite l’adresse IP d’où provient une requête afin de la livrer, et peut
+conserver des journaux techniques de réseau selon ses propres politiques. Nous avons désactivé les journaux automatiques par requête de notre
+Worker Cloudflare (journaux d’invocation), de sorte que les en-têtes des requêtes, y compris l’identifiant d’installation et son secret, n’y sont pas
+consignés. Les journaux que nous conservons (Cloudflare Workers Logs, quelques jours seulement) contiennent les messages propres à notre serveur,
+comme les erreurs et le nombre de lignes supprimées, qui sont écrits sans l’identifiant d’installation, le secret, le jeton de notification poussée
+ni l’adresse IP. Nous les utilisons uniquement pour exploiter et protéger le service. Pour limiter les abus, notre serveur compte brièvement les requêtes par adresse
 IP (pour IPv6, par bloc réseau /64), et ce compte n’est pas conservé. Il compte aussi, par jour, combien d’alertes de taux gratuites sont créées depuis chaque réseau (une adresse IPv4 ou un /64 IPv6). Ce compte est conservé au plus une journée, sous une empreinte à sens unique produite avec une valeur aléatoire qui change chaque jour. Le compte et cette valeur sont supprimés à la fin de la journée. Nous n’utilisons pas les journaux pour identifier qui que ce soit, ni à des fins d’analyse,
 de publicité ou de suivi, et nous ne les communiquons ni ne les vendons.</p>
 

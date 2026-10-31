@@ -82,9 +82,13 @@ The widget fetches rates the same way.</p>
 <p>A rate request contains <strong>only a currency code</strong>. It has no identifier and nothing you
 typed into the app.</p>
 
-<p>Like any web service, Cloudflare automatically records technical request logs that include the IP
-address a request came from. We keep these logs only for a few days (Cloudflare Workers Logs). We use
-them only to run and protect the service. To limit abuse, our server briefly counts requests per IP
+<p>Like any web service, Cloudflare, our hosting provider, handles the IP address a request comes
+from in order to deliver it, and may keep technical network records under its own policies. We have
+turned off the automatic per-request logs of our Cloudflare Worker (invocation logs), so request
+headers, including the install ID and its secret, are not recorded in them. The logs we do keep
+(Cloudflare Workers Logs, for only a few days) hold our server's own messages, such as errors and
+counts of rows deleted, which are written without the install ID, secret, push token or IP address.
+We use them only to run and protect the service. To limit abuse, our server briefly counts requests per IP
 address (for IPv6, per /64 network block), and this count is not stored. It also counts how many free rate alerts are created from each network (an IPv4 address or an IPv6 /64) per day. That count is stored for at most a day under a one-way hash made with a random value that changes daily. The count and that value are deleted after the day. We do not use the logs to identify anyone, for analytics,
 advertising or tracking, and we do not share or sell them.</p>
 
