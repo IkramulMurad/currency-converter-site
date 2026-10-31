@@ -85,7 +85,7 @@ hayas escrito en la app.</p>
 <p>Como cualquier servicio web, Cloudflare registra automáticamente registros técnicos de las solicitudes que incluyen la dirección
 IP desde la que se hizo cada una. Conservamos estos registros solo unos días (Cloudflare Workers Logs). Los usamos
 únicamente para operar y proteger el servicio. Para limitar los abusos, nuestro servidor cuenta brevemente las solicitudes por dirección
-IP, y ese conteo no se almacena. No usamos los registros para identificar a nadie, ni para analítica,
+IP (en IPv6, por bloque de red /64), y ese conteo no se almacena. También cuenta, por día, cuántas alertas de tipo de cambio gratuitas se crean desde cada red (una dirección IPv4 o un /64 de IPv6). Ese conteo se almacena como máximo un día, bajo un hash unidireccional hecho con un valor aleatorio que cambia cada día. El conteo y ese valor se eliminan al terminar el día. No usamos los registros para identificar a nadie, ni para analítica,
 publicidad o rastreo, y no los compartimos ni los vendemos.</p>
 
 <h2>5. Alertas de tipo de cambio y notificaciones</h2>
@@ -124,7 +124,7 @@ firmado por Apple. El servidor verifica la firma de Apple. Solo conserva el ID d
 original, el producto, la fecha de vencimiento y si se reembolsó. Cada vez que la app actualiza tu estado
 de Pro, también envía tu ID de instalación y tu secreto, para que la compra pueda vincularse a esta instalación. Estos datos
 se vinculan a los ID de instalación que usan la compra, con un máximo de 10 dispositivos por compra. Los usamos solo para decidir cuántas alertas de tipo de cambio puedes
-tener: 1 en el plan gratuito, hasta 50 con Pro. Estos registros de compra se conservan mientras un dispositivo los use. Eliminar alertas y datos del servidor borra el vínculo de este dispositivo, y el registro mismo si ningún otro dispositivo lo usa.</p>
+tener: 1 en el plan gratuito, hasta 50 con Pro. Estos registros de compra se conservan mientras un dispositivo los use. Eliminar alertas y datos del servidor borra el vínculo de este dispositivo, y el registro mismo si ningún otro dispositivo lo usa. El registro de una compra reembolsada o revocada se conserva, sin vínculo con ningún dispositivo, para que eliminar los datos no pueda deshacer un reembolso.</p>
 
 <p>Apple también notifica a nuestro servidor cuando una suscripción se renueva, vence o se reembolsa (notificaciones del servidor de
 App Store). Estos avisos no contienen datos de pago. El tratamiento que Apple da a los datos de compra se rige por el
@@ -150,7 +150,7 @@ información personal de menores.</p>
 acceder, corregir, exportar o eliminar los datos personales que una empresa conserva sobre ti.</p>
 <p>Los datos de tu dispositivo están bajo tu control (consulta la sección 3). Para los datos de nuestro servidor, usa
 <strong>Ajustes → Eliminar alertas y datos del servidor</strong> (en la sección Alertas de tipo de cambio). Esto elimina de inmediato tus
-alertas, el registro de notificaciones push, la credencial de instalación y los vínculos de compra de nuestro servidor. Después, la app olvida
+alertas, el registro de notificaciones push, la credencial de instalación y los vínculos de compra de nuestro servidor. La única excepción es el registro de una compra reembolsada o revocada, que no está vinculado a ningún dispositivo y se conserva (sección 6). Después, la app olvida
 su ID de instalación. También puedes escribirnos a
 <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 <p>No vendemos ni compartimos información personal.</p>
@@ -165,11 +165,12 @@ descritos en las secciones 5 y 6. Contacto:
   <li>Tipos de cambio y gráficas: no se envían datos personales. Las solicitudes de tipos no llevan ningún identificador, por lo que no se necesita una base legal.</li>
   <li>Alertas de tipo de cambio, el ID de instalación y el secreto, tu token push y los ajustes de tus alertas: ejecución del servicio que solicitaste (contrato). Enviamos notificaciones solo si las permites en iOS.</li>
   <li>Verificación y vinculación de las compras de Pro: contrato, y nuestro interés legítimo en evitar el uso indebido del límite de alertas.</li>
+  <li>Prevención de abusos (conteos de solicitudes por red y conteo diario de alertas gratuitas): nuestro interés legítimo en evitar el abuso del servicio.</li>
   <li>Datos de tu dispositivo: no los tratamos.</li>
 </ul>
 
 <p><strong>Cuánto tiempo los conservamos.</strong> Como se describe en las secciones 5 y 6. Ajustes → Eliminar alertas y datos del servidor
-los elimina.</p>
+los elimina, salvo el registro de un reembolso (sección 6).</p>
 
 <p><strong>Transferencias fuera de tu país.</strong> Nuestro servidor se ejecuta en Cloudflare, que puede tratar datos en
 Estados Unidos y en otros países. Cloudflare se apoya en las Cláusulas Contractuales Tipo de la UE y en el
