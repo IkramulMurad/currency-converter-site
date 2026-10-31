@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de confidentialité — Currency Converter + Units</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+
+<header>
+  <h1>Politique de confidentialité</h1>
+  <p class="meta">Currency Converter + Units · Dernière mise à jour&nbsp;: 31 octobre 2026</p>
+  <p class="meta"><a href="../privacy.html" lang="en" hreflang="en">English</a> · <span lang="fr-CA">Français</span> · <a href="../es/privacy.html" lang="es" hreflang="es">Español</a></p>
+</header>
+
+<div class="lede">
+  <p><strong>En bref&nbsp;:</strong> il n’y a ni compte, ni connexion, ni analyse d’utilisation, ni publicité et
+  ni suivi. Vos conversions, vos réglages et vos listes restent sur votre appareil. L’application n’envoie des données limitées à notre propre serveur que si vous utilisez les alertes de taux
+  ou achetez Pro, comme il est décrit aux sections 5 et 6. Vous pouvez
+  les supprimer dans les Réglages.</p>
+</div>
+
+<h2>1. Qui nous sommes</h2>
+<p>Currency Converter + Units («&nbsp;l’application&nbsp;») est développée et publiée par Jannatul Ferdous Laboni («&nbsp;nous&nbsp;»).
+Vous pouvez nous joindre à <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+
+<h2>2. Renseignements que nous ne recueillons pas</h2>
+<p>Nous ne demandons, ne recevons ni ne conservons aucun des éléments suivants&nbsp;:</p>
+<ul>
+  <li>Votre nom, votre adresse courriel, votre numéro de téléphone ou votre adresse postale (à moins que vous ne choisissiez de nous écrire par courriel, auquel cas nous recevons votre adresse courriel et ce que vous écrivez)</li>
+  <li>Tout compte ou toute connexion — l’application n’en a aucun</li>
+  <li>Les renseignements de carte de paiement ou de facturation</li>
+  <li>Votre position. L’application n’utilise pas les services de localisation. Votre adresse IP apparaît brièvement dans les journaux du serveur (voir la section 4), et nous ne l’utilisons pas pour savoir où vous êtes.</li>
+  <li>Les contacts, les photos, la caméra, le microphone ou les données de santé</li>
+  <li>Les identifiants publicitaires (IDFA) ou tout identifiant de suivi entre applications. L’identifiant d’installation aléatoire utilisé pour les alertes de taux et les achats Pro (sections 5 et 6) est créé par l’application, n’est jamais communiqué à qui que ce soit d’autre et n’est pas utilisé à des fins de suivi.</li>
+</ul>
+<p>L’application ne contient aucun SDK d’analyse, aucun SDK publicitaire et aucun SDK de rapport de plantage. Comme nous
+ne vous suivons pas d’une application ou d’un site Web à l’autre parmi ceux appartenant à d’autres entreprises, l’application n’affiche jamais la
+demande de l’App Tracking Transparency.</p>
+
+<h2>3. Renseignements stockés sur votre appareil</h2>
+<p>L’application enregistre les éléments suivants sur votre appareil, afin qu’elle fonctionne comme vous l’avez laissée. Nous ne pouvons pas
+les lire. Ce qui est aussi envoyé à notre serveur est décrit aux sections 5 et 6.</p>
+
+<table>
+  <tr><th>Ce qui est stocké</th><th>Pourquoi</th></tr>
+  <tr><td>Les taux de change et l’historique des taux téléchargés récemment</td><td>Pour que la conversion et les graphiques continuent de fonctionner sans connexion Internet</td></tr>
+  <tr><td>Votre devise de base par défaut</td><td>Pour que vous n’ayez pas à la choisir chaque fois</td></tr>
+  <tr><td>Votre liste de devises sélectionnées et vos favoris enregistrés</td><td>Pour rétablir votre liste quand vous rouvrez l’application</td></tr>
+  <tr><td>Les taux personnalisés que vous saisissez (Pro)</td><td>Pour utiliser vos propres taux dans les conversions</td></tr>
+  <tr><td>Les préférences de l’application (affichage, intervalle d’actualisation, vitesse de la voix)</td><td>Pour conserver vos réglages</td></tr>
+  <tr><td>Les indicateurs d’intégration et de demande d’évaluation</td><td>Pour n’afficher qu’une seule fois les écrans de bienvenue et la demande d’évaluation</td></tr>
+  <tr><td>Un identifiant d’installation aléatoire et un secret, conservés dans le Trousseau de l’appareil</td><td>Utilisés pour les alertes de taux et pour associer les achats Pro à cet appareil (voir les sections 5 et 6)</td></tr>
+</table>
+
+<p>Le widget de l’écran d’accueil lit les mêmes taux à partir d’un conteneur partagé entre l’application et le widget
+sur votre appareil.</p>
+
+<p><strong>Réglages → Rétablir les valeurs par défaut</strong> ne réinitialise que les réglages d’affichage&nbsp;: nombre de décimales, format
+des nombres, thème et vitesse de la voix. Cela ne touche pas à votre devise principale, à votre devise cible ni au réglage d’actualisation automatique. Supprimer l’application efface
+ce qu’elle a stocké, sauf l’identifiant d’installation et le secret du Trousseau. iOS les conserve sur le même appareil afin que vos
+alertes de taux fonctionnent encore après une réinstallation. <strong>Réglages → Supprimer les alertes et les données du serveur</strong> (dans la section Alertes de taux)
+les supprime, ainsi que les données du serveur.</p>
+
+<h2>4. Comment les taux de change parviennent à l’application</h2>
+<p>L’application ne communique pas directement avec les fournisseurs de taux. Elle interroge un petit serveur que nous exploitons&nbsp;: un Cloudflare
+Worker. Cloudflare, Inc. agit comme notre fournisseur d’hébergement et notre sous-traitant. Le serveur récupère les taux et les
+met en cache, de sorte que tous les utilisateurs sont servis à partir d’une seule copie partagée.</p>
+
+<p>Le serveur utilise ces sources, dans cet ordre&nbsp;:</p>
+<ul>
+  <li><a href="https://www.exchangerate-api.com/" rel="noopener">ExchangeRate-API</a> (open.er-api.com)&nbsp;: la source principale des taux en direct</li>
+  <li><a href="https://github.com/fawazahmed0/exchange-api" rel="noopener">Currency API</a> (fawazahmed0, diffusée par Cloudflare et jsDelivr)&nbsp;: la source de secours des taux en direct, la source des métaux précieux et des cryptomonnaies, et la seule source des graphiques d’historique des taux</li>
+  <li>Les taux de référence de la <a href="https://www.ecb.europa.eu/" rel="noopener">Banque centrale européenne</a>&nbsp;: utilisés uniquement sur le serveur, à titre de recoupement. Un tableau de taux s’écartant de plus de 5&nbsp;% de celui de la BCE est rejeté. Les chiffres de la BCE ne vous sont jamais montrés.</li>
+</ul>
+<p>Ces trois sources sont appelées par notre serveur, jamais par votre appareil. Elles voient des requêtes provenant de nous, pas de vous.
+Le widget récupère les taux de la même façon.</p>
+
+<p>Une requête de taux ne contient <strong>qu’un code de devise</strong>. Elle ne comporte aucun identifiant et rien de ce que vous
+avez saisi dans l’application.</p>
+
+<p>Comme tout service Web, Cloudflare enregistre automatiquement des journaux techniques des requêtes qui comprennent l’adresse IP
+d’où provient une requête. Nous ne conservons ces journaux que quelques jours (Cloudflare Workers Logs). Nous les utilisons
+uniquement pour exploiter et protéger le service. Pour limiter les abus, notre serveur compte brièvement les requêtes par adresse
+IP, et ce compte n’est pas conservé. Nous n’utilisons pas les journaux pour identifier qui que ce soit, ni à des fins d’analyse,
+de publicité ou de suivi, et nous ne les communiquons ni ne les vendons.</p>
+
+<h2>5. Alertes de taux et notifications</h2>
+<p>Cette section s’applique si vous créez une alerte de taux. Nous stockons alors les éléments suivants sur notre serveur, dans
+une base de données Cloudflare D1. Si vous achetez Pro, l’identifiant d’installation et l’empreinte du secret y sont aussi stockés, afin que
+l’achat puisse être associé à votre appareil (section 6)&nbsp;:</p>
+
+<table>
+  <tr><th>Ce qui est stocké</th><th>Pourquoi</th></tr>
+  <tr><td>Un identifiant d’installation aléatoire créé sur votre appareil et une empreinte à sens unique d’un secret aléatoire. Votre appareil envoie le secret avec chaque requête pour prouver qu’il est bien le vôtre; notre serveur ne stocke que l’empreinte.</td><td>Pour que seul votre appareil puisse voir ou modifier ses alertes</td></tr>
+  <tr><td>Votre jeton de notification poussée Apple, seulement si vous autorisez les notifications</td><td>Pour livrer l’alerte</td></tr>
+  <tr><td>La paire de devises, le taux cible et la direction (au-dessus ou en dessous) de chaque alerte, si elle se répète, et la date de son dernier déclenchement</td><td>Pour la comparer aux taux toutes les heures</td></tr>
+</table>
+
+<p>Nous ne stockons ni votre nom, ni votre courriel, ni votre compte Apple, ni votre position. L’identifiant d’installation n’est pas inscrit dans les
+journaux du serveur. Les notifications poussées sont livrées par le service Apple Push Notification (APNs), et
+la <a href="https://www.apple.com/legal/privacy/" rel="noopener">politique de confidentialité d’Apple</a> s’y applique.</p>
+
+<p><strong>Conservation.</strong> Les alertes restent jusqu’à ce que vous les supprimiez. Une alerte unique est supprimée après
+son déclenchement. Les données d’un appareil qui n’a jamais autorisé les notifications sont supprimées automatiquement après 30 jours. Si
+Apple signale qu’un jeton de notification poussée n’est plus valide, par exemple parce que l’application a été supprimée, les données de cet
+appareil sont effacées.</p>
+
+<p><strong>Si le service prend fin.</strong> Si nous cessons d’exploiter le serveur, par exemple parce que l’application est
+abandonnée, nous supprimerons les données qu’il contient, y compris les alertes, les enregistrements de notifications poussées, les identifiants
+d’installation et les enregistrements d’achat. Nous ne les vendrons pas et ne les transférerons pas à d’autres fins.
+Si l’application et son service sont cédés à un successeur, les données ne sont transférées que pour que le même
+service puisse se poursuivre en vertu de la présente politique.</p>
+
+<h2>6. Abonnements et paiements</h2>
+<p>Les achats sont effectués et traités par Apple par l’intermédiaire de l’App Store. Nous ne voyons jamais les renseignements de votre carte,
+votre adresse de facturation ni les renseignements de votre compte Apple.</p>
+
+<p>Si vous achetez Pro (un abonnement ou Pro à vie), l’application envoie à notre serveur la preuve d’achat
+signée d’Apple. Le serveur vérifie la signature d’Apple. Il ne conserve que l’identifiant de la transaction d’origine, le produit, la date d’expiration et
+l’indication d’un éventuel remboursement. Chaque fois que l’application actualise votre statut Pro,
+elle envoie aussi votre identifiant d’installation et votre secret, afin que l’achat puisse être associé à cette installation. Ces
+données sont associées aux identifiants d’installation qui utilisent l’achat, soit au plus 10 appareils par achat. Nous les utilisons uniquement pour décider du nombre d’alertes de taux
+que vous pouvez avoir&nbsp;: 1 gratuite, jusqu’à 50 avec Pro. Ces enregistrements d’achat sont conservés tant qu’un appareil les utilise. Supprimer les alertes et les données du serveur efface le lien de cet appareil, ainsi que l’enregistrement lui-même si aucun autre appareil ne l’utilise.</p>
+
+<p>Apple avise aussi notre serveur lorsqu’un abonnement est renouvelé, expire ou est remboursé (notifications du serveur
+App Store). Ces avis ne contiennent aucun détail de paiement. Le traitement des données d’achat par Apple est
+régi par la <a href="https://www.apple.com/legal/privacy/" rel="noopener">politique de confidentialité d’Apple</a>.</p>
+
+<h2>7. Cartes</h2>
+<p>Les options «&nbsp;Guichets à proximité&nbsp;» et «&nbsp;Bureaux de change à proximité&nbsp;» n’utilisent pas votre position. Les toucher
+ouvre Plans d’Apple ou Google Maps avec une recherche textuelle comme «&nbsp;Guichets à proximité&nbsp;». Tout ce qui se passe
+ensuite, y compris la façon dont ces applications utilisent votre position, relève de la politique de confidentialité
+d’<a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple</a> ou de
+<a href="https://policies.google.com/privacy" rel="noopener">Google</a>, et non de la nôtre.</p>
+
+<h2>8. Voix</h2>
+<p>La fonction de lecture à voix haute utilise les voix intégrées à iOS pour énoncer les résultats. Elle ne fait que
+produire du son. Elle n’écoute pas, n’utilise pas le microphone et n’enregistre rien.</p>
+
+<h2>9. Enfants</h2>
+<p>L’application est un outil à usage général et ne s’adresse pas aux enfants de moins de 13 ans. Nous ne recueillons pas sciemment
+de renseignements personnels auprès d’enfants.</p>
+
+<h2>10. Suppression de vos données et vos droits</h2>
+<p>Les lois sur la protection de la vie privée, comme le RGPD (Europe et Royaume-Uni) et le CCPA (Californie), vous donnent le droit
+d’accéder aux renseignements personnels qu’une entreprise détient à votre sujet, de les corriger, de les exporter ou de les supprimer.</p>
+<p>Les données de votre appareil sont sous votre contrôle (voir la section 3). Pour les données de notre serveur, utilisez
+<strong>Réglages → Supprimer les alertes et les données du serveur</strong> (dans la section Alertes de taux). Cela supprime immédiatement vos
+alertes, votre enregistrement de notifications poussées, vos identifiants d’installation et vos liens d’achat de notre serveur. L’application oublie ensuite
+son identifiant d’installation. Vous pouvez aussi nous écrire à
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+<p>Nous ne vendons ni ne communiquons de renseignements personnels.</p>
+
+<h2>11. Si vous êtes dans l’UE, au Royaume-Uni ou en Suisse</h2>
+<p><strong>Qui est responsable.</strong> Jannatul Ferdous Laboni est le responsable du traitement des données personnelles
+décrites aux sections 5 et 6. Coordonnées&nbsp;:
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+
+<p><strong>Pourquoi nous pouvons les traiter.</strong></p>
+<ul>
+  <li>Taux de change et graphiques&nbsp;: aucune donnée personnelle n’est envoyée. Les requêtes de taux ne comportent aucun identifiant; aucune base légale n’est donc nécessaire.</li>
+  <li>Alertes de taux, identifiant d’installation et secret, jeton de notification poussée et paramètres de vos alertes&nbsp;: exécution du service que vous avez demandé (contrat). Nous n’envoyons des notifications que si vous les autorisez dans iOS.</li>
+  <li>Vérification et association des achats Pro&nbsp;: contrat, et notre intérêt légitime à prévenir l’usage abusif de la limite d’alertes.</li>
+  <li>Données de votre appareil&nbsp;: nous ne les traitons pas.</li>
+</ul>
+
+<p><strong>Durée de conservation.</strong> Comme il est décrit aux sections 5 et 6. Réglages → Supprimer les alertes et les données du serveur
+les supprime.</p>
+
+<p><strong>Transferts hors de votre pays.</strong> Notre serveur fonctionne sur Cloudflare, qui peut traiter des données aux
+États-Unis et dans d’autres pays. Cloudflare s’appuie sur les clauses contractuelles types de l’UE et sur le
+cadre de protection des données UE-États-Unis (EU-U.S. Data Privacy Framework), ainsi que sur ses extensions pour le Royaume-Uni et la Suisse. Apple gère les notifications poussées et les
+achats selon sa propre politique de confidentialité.</p>
+
+<p><strong>Vos droits.</strong> Vous pouvez nous demander l’accès à vos données, leur rectification, leur effacement, la limitation de leur traitement ou leur portabilité,
+et vous pouvez vous opposer à notre traitement. Écrivez-nous à l’adresse ci-dessus. Vous avez aussi le droit de déposer une plainte auprès de l’autorité locale de contrôle de la
+protection des données de l’UE, auprès de l’Information Commissioner’s Office (ICO) au Royaume-Uni,
+ou auprès du Préposé fédéral à la protection des données et à la transparence (PFPDT) en Suisse.</p>
+
+<h2>12. Modifications de la présente politique</h2>
+<p>Si la présente politique change, la version mise à jour sera publiée sur cette page, avec une nouvelle date en haut.
+Les modifications importantes seront aussi indiquées dans les notes de version de l’application dans l’App Store.</p>
+
+<h2>13. Coordonnées</h2>
+<p>Des questions au sujet de la présente politique? Écrivez à
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+
+<footer>
+  <a href="index.html">Accueil</a>
+  <a href="terms.html">Conditions d’utilisation</a>
+</footer>
+
+</main>
+</body>
+</html>
