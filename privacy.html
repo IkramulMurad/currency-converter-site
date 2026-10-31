@@ -97,6 +97,7 @@ the purchase can be linked to your device (section 6):</p>
   <tr><th>What is stored</th><th>Why</th></tr>
   <tr><td>A random install ID created on your device, and a one-way hash of a random secret. Your device sends the secret with each request to prove it is yours; our server stores only the hash.</td><td>So only your device can see or change its alerts</td></tr>
   <tr><td>Your Apple push notification token, only if you allow notifications</td><td>To deliver the alert</td></tr>
+  <tr><td>The decimal and grouping separators of your number format (for example "." and ","), stored with your device record</td><td>To format numbers in notifications the way you read them</td></tr>
   <tr><td>Each alert's currency pair, target rate and direction (above or below), whether it repeats, and when it last fired</td><td>To check it against rates every hour</td></tr>
 </table>
 
@@ -107,7 +108,8 @@ server logs. Push notifications are delivered through Apple Push Notification se
 <p><strong>Retention.</strong> Alerts stay until you delete them. A one-time alert is deleted after it
 fires. Data for a device that never allowed notifications is deleted automatically after 30 days. If
 Apple reports that a push token is no longer valid, for example because the app was deleted, that
-device's data is removed.</p>
+device's data is removed, and a device is also removed after 3 consecutive hard push-delivery failures. A device's
+push token and its alerts are deleted 60 days after the app was last opened.</p>
 
 <p><strong>If the service ends.</strong> If we stop running the server, for example because the app is
 discontinued, we will delete the data held on it, including alerts, push registrations, install
@@ -121,14 +123,22 @@ billing address or Apple Account information.</p>
 
 <p>If you buy Pro (a subscription or Pro Lifetime), the app sends our server Apple's
 signed proof of purchase. The server checks Apple's signature. It keeps only the original transaction
-ID, the product, the expiry date and whether it was refunded. Each time the app refreshes your Pro
+ID, the product, the expiry date and whether it was refunded. Each time the app verifies your Pro
 status, it also sends your install ID and secret, so the purchase can be linked to this install. These
-are linked to the install IDs that use the purchase, at most 10 devices per purchase. We use this only to decide how many rate alerts you
-can have: 1 free, up to 50 with Pro. These purchase records are kept while a device uses them. Delete Alerts &amp; Server Data removes this device's link, and the record itself if no other device uses it. A record of a refunded or revoked purchase is kept, with no link to any device, so that deleting data cannot undo a refund.</p>
+are linked to the install IDs that use the purchase, at most 10 devices per purchase. We use this only
+to decide how many rate alerts you can have: 1 free, up to 50 with Pro.</p>
 
-<p>Apple also notifies our server when a subscription renews, expires or is refunded (App Store Server
-Notifications). These notices contain no payment details. Apple's handling of purchase data is
-governed by the <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple Privacy Policy</a>.</p>
+<p>Apple also notifies our server when a subscription is bought, renews, expires or is refunded
+(App Store Server Notifications). Each notice makes our server store a record of that purchase (the same
+four items above), <strong>even if you never use rate alerts</strong> and no device has linked it. These
+notices contain no payment details. Apple's handling of purchase data is governed by the
+<a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple Privacy Policy</a>.</p>
+
+<p><strong>How long purchase records are kept.</strong> A purchase record is kept while it is linked to a
+device. A record that is not linked to any device is deleted 30 days after the purchase expires (Pro
+Lifetime never expires, so 30 days after we last received it from Apple or from your device). The record of a
+refunded or revoked purchase is kept, with no link to any device, so that it cannot be restored.
+Delete Alerts &amp; Server Data removes this device's link (section 10).</p>
 
 <h2>7. Maps</h2>
 <p>The "Nearby ATMs" and "Nearby Currency Exchange" options do not use your location. Tapping them
@@ -150,8 +160,12 @@ collect personal information from children.</p>
 access, correct, export or delete the personal data a company holds about you.</p>
 <p>Data on your device is under your control (see section 3). For data on our server, use
 <strong>Settings → Delete Alerts &amp; Server Data</strong> (in the Rate Alerts section). This immediately deletes your
-alerts, push registration, install credential and purchase links from our server. The one exception is the record of a refunded or revoked purchase, which has no link to any device and is kept (section 6). The app then forgets
-its install ID. You can also email us at
+alerts, push registration, install credential and purchase links from our server, and a purchase record
+that no other device uses. The one exception is the record of a refunded or revoked purchase, which has no
+link to any device and is kept (section 6). The app then forgets its install ID. Deleting does not stop the
+purchase from reaching our server again: if you have Pro, the app links the purchase to a new install ID the
+next time it verifies Pro, and Apple's next notice about the purchase, such as a renewal, updates the
+purchase record. A record that no device uses is deleted 30 days after the purchase expires (section 6). You can also email us at
 <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 <p>We do not sell or share personal information.</p>
 
@@ -169,8 +183,12 @@ described in sections 5 and 6. Contact:
   <li>Data on your device: we do not process it.</li>
 </ul>
 
-<p><strong>How long we keep it.</strong> As described in sections 5 and 6. Settings → Delete Alerts &amp; Server Data
-deletes it, except a refund record (section 6).</p>
+<p><strong>How long we keep it.</strong> As described in sections 5, 6 and 10. Alerts stay until you delete them,
+and a device's push token and alerts are deleted 60 days after the app was last opened. A purchase record is kept
+while it is linked to a device, and an unlinked one is deleted 30 days after the purchase expires; a refund record is
+kept. Settings → Delete Alerts &amp; Server Data deletes your alerts, push registration, install credential and
+purchase links at once, except a refund record; Apple's notices and the app's next Pro check can store a purchase
+record again.</p>
 
 <p><strong>Transfers outside your country.</strong> Our server runs on Cloudflare, which may process data in
 the United States and other countries. Cloudflare relies on the EU Standard Contractual Clauses and the

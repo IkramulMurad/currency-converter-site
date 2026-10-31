@@ -96,6 +96,7 @@ l’achat puisse être associé à votre appareil (section 6)&nbsp;:</p>
   <tr><th>Ce qui est stocké</th><th>Pourquoi</th></tr>
   <tr><td>Un identifiant d’installation aléatoire créé sur votre appareil et une empreinte à sens unique d’un secret aléatoire. Votre appareil envoie le secret avec chaque requête pour prouver qu’il est bien le vôtre; notre serveur ne stocke que l’empreinte.</td><td>Pour que seul votre appareil puisse voir ou modifier ses alertes</td></tr>
   <tr><td>Votre jeton de notification poussée Apple, seulement si vous autorisez les notifications</td><td>Pour livrer l’alerte</td></tr>
+  <tr><td>Les séparateurs décimal et de milliers de votre format de nombres (par exemple «&nbsp;.&nbsp;» et «&nbsp;,&nbsp;»), stockés avec l’enregistrement de votre appareil</td><td>Pour mettre en forme les nombres des notifications comme vous les lisez</td></tr>
   <tr><td>La paire de devises, le taux cible et la direction (au-dessus ou en dessous) de chaque alerte, si elle se répète, et la date de son dernier déclenchement</td><td>Pour la comparer aux taux toutes les heures</td></tr>
 </table>
 
@@ -106,7 +107,8 @@ la <a href="https://www.apple.com/legal/privacy/" rel="noopener">politique de co
 <p><strong>Conservation.</strong> Les alertes restent jusqu’à ce que vous les supprimiez. Une alerte unique est supprimée après
 son déclenchement. Les données d’un appareil qui n’a jamais autorisé les notifications sont supprimées automatiquement après 30 jours. Si
 Apple signale qu’un jeton de notification poussée n’est plus valide, par exemple parce que l’application a été supprimée, les données de cet
-appareil sont effacées.</p>
+appareil sont effacées, et un appareil est aussi retiré après 3 échecs graves consécutifs de livraison de notifications poussées. Le jeton de notification
+poussée d’un appareil et ses alertes sont supprimés 60 jours après la dernière ouverture de l’application.</p>
 
 <p><strong>Si le service prend fin.</strong> Si nous cessons d’exploiter le serveur, par exemple parce que l’application est
 abandonnée, nous supprimerons les données qu’il contient, y compris les alertes, les enregistrements de notifications poussées, les identifiants
@@ -120,14 +122,22 @@ votre adresse de facturation ni les renseignements de votre compte Apple.</p>
 
 <p>Si vous achetez Pro (un abonnement ou Pro à vie), l’application envoie à notre serveur la preuve d’achat
 signée d’Apple. Le serveur vérifie la signature d’Apple. Il ne conserve que l’identifiant de la transaction d’origine, le produit, la date d’expiration et
-l’indication d’un éventuel remboursement. Chaque fois que l’application actualise votre statut Pro,
+l’indication d’un éventuel remboursement. Chaque fois que l’application vérifie votre statut Pro,
 elle envoie aussi votre identifiant d’installation et votre secret, afin que l’achat puisse être associé à cette installation. Ces
-données sont associées aux identifiants d’installation qui utilisent l’achat, soit au plus 10 appareils par achat. Nous les utilisons uniquement pour décider du nombre d’alertes de taux
-que vous pouvez avoir&nbsp;: 1 gratuite, jusqu’à 50 avec Pro. Ces enregistrements d’achat sont conservés tant qu’un appareil les utilise. Supprimer les alertes et les données du serveur efface le lien de cet appareil, ainsi que l’enregistrement lui-même si aucun autre appareil ne l’utilise. L’enregistrement d’un achat remboursé ou révoqué est conservé, sans lien avec aucun appareil, afin que la suppression des données ne puisse pas annuler un remboursement.</p>
+données sont associées aux identifiants d’installation qui utilisent l’achat, soit au plus 10 appareils par achat. Nous les utilisons uniquement
+pour décider du nombre d’alertes de taux que vous pouvez avoir&nbsp;: 1 gratuite, jusqu’à 50 avec Pro.</p>
 
-<p>Apple avise aussi notre serveur lorsqu’un abonnement est renouvelé, expire ou est remboursé (notifications du serveur
-App Store). Ces avis ne contiennent aucun détail de paiement. Le traitement des données d’achat par Apple est
-régi par la <a href="https://www.apple.com/legal/privacy/" rel="noopener">politique de confidentialité d’Apple</a>.</p>
+<p>Apple avise aussi notre serveur lorsqu’un abonnement est acheté, renouvelé, expire ou est remboursé (notifications du serveur
+App Store). Chaque avis amène notre serveur à stocker un enregistrement de cet achat (les quatre mêmes éléments que ci-dessus),
+<strong>même si vous n’utilisez jamais les alertes de taux</strong> et qu’aucun appareil ne l’a associé. Ces avis ne contiennent aucun détail de paiement.
+Le traitement des données d’achat par Apple est régi par la
+<a href="https://www.apple.com/legal/privacy/" rel="noopener">politique de confidentialité d’Apple</a>.</p>
+
+<p><strong>Durée de conservation des enregistrements d’achat.</strong> Un enregistrement d’achat est conservé tant qu’il est associé à un
+appareil. Un enregistrement qui n’est associé à aucun appareil est supprimé 30 jours après l’expiration de l’achat (Pro à vie
+n’expire jamais; il est donc supprimé 30 jours après la dernière fois que nous l’avons reçu d’Apple ou de votre appareil). L’enregistrement d’un achat
+remboursé ou révoqué est conservé, sans lien avec aucun appareil, afin qu’il ne puisse pas être rétabli.
+Supprimer les alertes et les données du serveur efface le lien de cet appareil (section 10).</p>
 
 <h2>7. Cartes</h2>
 <p>Les options «&nbsp;Guichets à proximité&nbsp;» et «&nbsp;Bureaux de change à proximité&nbsp;» n’utilisent pas votre position. Les toucher
@@ -149,8 +159,11 @@ de renseignements personnels auprès d’enfants.</p>
 d’accéder aux renseignements personnels qu’une entreprise détient à votre sujet, de les corriger, de les exporter ou de les supprimer.</p>
 <p>Les données de votre appareil sont sous votre contrôle (voir la section 3). Pour les données de notre serveur, utilisez
 <strong>Réglages → Supprimer les alertes et les données du serveur</strong> (dans la section Alertes de taux). Cela supprime immédiatement vos
-alertes, votre enregistrement de notifications poussées, vos identifiants d’installation et vos liens d’achat de notre serveur. Seule exception&nbsp;: l’enregistrement d’un achat remboursé ou révoqué, qui n’est lié à aucun appareil, est conservé (section 6). L’application oublie ensuite
-son identifiant d’installation. Vous pouvez aussi nous écrire à
+alertes, votre enregistrement de notifications poussées, vos identifiants d’installation et vos liens d’achat de notre serveur, ainsi qu’un enregistrement d’achat
+qu’aucun autre appareil n’utilise. Seule exception&nbsp;: l’enregistrement d’un achat remboursé ou révoqué, qui n’est lié à aucun appareil, est conservé (section 6). L’application oublie ensuite
+son identifiant d’installation. La suppression n’empêche pas l’achat d’arriver de nouveau à notre serveur&nbsp;: si vous avez Pro, l’application associe l’achat à un nouvel
+identifiant d’installation la prochaine fois qu’elle vérifie Pro, et le prochain avis d’Apple concernant l’achat, comme un renouvellement, met à jour l’enregistrement d’achat.
+Un enregistrement qu’aucun appareil n’utilise est supprimé 30 jours après l’expiration de l’achat (section 6). Vous pouvez aussi nous écrire à
 <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 <p>Nous ne vendons ni ne communiquons de renseignements personnels.</p>
 
@@ -168,8 +181,11 @@ décrites aux sections 5 et 6. Coordonnées&nbsp;:
   <li>Données de votre appareil&nbsp;: nous ne les traitons pas.</li>
 </ul>
 
-<p><strong>Durée de conservation.</strong> Comme il est décrit aux sections 5 et 6. Réglages → Supprimer les alertes et les données du serveur
-les supprime, sauf l’enregistrement d’un remboursement (section 6).</p>
+<p><strong>Durée de conservation.</strong> Comme il est décrit aux sections 5, 6 et 10. Les alertes restent jusqu’à ce que vous les supprimiez, et le jeton de notification
+poussée d’un appareil et ses alertes sont supprimés 60 jours après la dernière ouverture de l’application. Un enregistrement d’achat est conservé tant qu’il est associé
+à un appareil, et un enregistrement sans lien est supprimé 30 jours après l’expiration de l’achat; l’enregistrement d’un remboursement est conservé.
+Réglages → Supprimer les alertes et les données du serveur supprime immédiatement vos alertes, votre enregistrement de notifications poussées, vos identifiants d’installation
+et vos liens d’achat, sauf l’enregistrement d’un remboursement; les avis d’Apple et la prochaine vérification de Pro par l’application peuvent stocker de nouveau un enregistrement d’achat.</p>
 
 <p><strong>Transferts hors de votre pays.</strong> Notre serveur fonctionne sur Cloudflare, qui peut traiter des données aux
 États-Unis et dans d’autres pays. Cloudflare s’appuie sur les clauses contractuelles types de l’UE et sur le
