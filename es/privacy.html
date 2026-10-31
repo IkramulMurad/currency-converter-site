@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aviso de privacidad — Currency Converter + Units</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+
+<header>
+  <h1>Aviso de privacidad</h1>
+  <p class="meta">Currency Converter + Units · Última actualización: 31 de octubre de 2026</p>
+  <p class="meta"><a href="../privacy.html" lang="en" hreflang="en">English</a> · <a href="../fr/privacy.html" lang="fr" hreflang="fr">Français</a> · <span lang="es-MX">Español</span></p>
+</header>
+
+<div class="lede">
+  <p><strong>Versión corta:</strong> no hay cuenta, no hay inicio de sesión, no hay analítica, no hay publicidad y
+  no hay rastreo. Tus conversiones, ajustes y listas se quedan en tu dispositivo. Solo si usas alertas de tipo de cambio
+  o compras Pro, la app envía datos limitados a nuestro propio servidor, como se describe en las secciones 5 y 6. Puedes
+  eliminarlos desde Ajustes.</p>
+</div>
+
+<h2>1. Quiénes somos</h2>
+<p>Currency Converter + Units ("la app") es desarrollada y publicada por Jannatul Ferdous Laboni ("nosotros").
+Puedes comunicarte con nosotros en <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+
+<h2>2. Información que no recopilamos</h2>
+<p>No solicitamos, recibimos ni almacenamos nada de lo siguiente:</p>
+<ul>
+  <li>Tu nombre, correo electrónico, número de teléfono o domicilio postal (a menos que decidas escribirnos por correo electrónico, en cuyo caso recibimos tu dirección de correo electrónico y lo que escribas)</li>
+  <li>Ninguna cuenta ni inicio de sesión: la app no tiene ninguno</li>
+  <li>Información de tarjetas de pago o de facturación</li>
+  <li>Tu ubicación. La app no usa servicios de localización. Tu dirección IP aparece brevemente en los registros del servidor (consulta la sección 4), y no la usamos para saber dónde estás.</li>
+  <li>Contactos, fotos, cámara, micrófono ni datos de salud</li>
+  <li>Identificadores de publicidad (IDFA) ni ningún identificador de seguimiento entre apps. El ID de instalación aleatorio que se usa para las alertas de tipo de cambio y las compras de Pro (secciones 5 y 6) lo crea la app, nunca se comparte con nadie más y no se usa para rastrearte.</li>
+</ul>
+<p>La app no contiene ningún SDK de analítica, ningún SDK de publicidad ni ningún SDK de reporte de fallos. Como no
+te rastreamos entre apps ni sitios web de otras empresas, la app nunca muestra la solicitud de
+Transparencia de seguimiento de apps.</p>
+
+<h2>3. Información almacenada en tu dispositivo</h2>
+<p>La app guarda lo siguiente en tu dispositivo, para que funcione como la dejaste. No podemos leerlo.
+Lo que además se envía a nuestro servidor se describe en las secciones 5 y 6.</p>
+
+<table>
+  <tr><th>Qué se almacena</th><th>Por qué</th></tr>
+  <tr><td>Tipos de cambio descargados recientemente e historial de tipos</td><td>Para que la conversión y las gráficas sigan funcionando sin conexión a internet</td></tr>
+  <tr><td>Tu moneda base predeterminada</td><td>Para que no tengas que elegirla cada vez</td></tr>
+  <tr><td>Tu lista de monedas seleccionadas y tus favoritas guardadas</td><td>Para restaurar tu lista cuando vuelvas a abrir la app</td></tr>
+  <tr><td>Los tipos personalizados que ingresas (Pro)</td><td>Para usar tus propios tipos en las conversiones</td></tr>
+  <tr><td>Preferencias de la app (pantalla, intervalo de actualización, velocidad de voz)</td><td>Para conservar tus ajustes</td></tr>
+  <tr><td>Indicadores de la bienvenida y de la solicitud de reseña</td><td>Para mostrar las pantallas de bienvenida y la solicitud de reseña una sola vez</td></tr>
+  <tr><td>Un ID de instalación aleatorio y un secreto, guardados en el llavero del dispositivo</td><td>Se usan para las alertas de tipo de cambio y para vincular las compras de Pro a este dispositivo (consulta las secciones 5 y 6)</td></tr>
+</table>
+
+<p>El widget de la pantalla de inicio lee los mismos tipos de cambio desde un contenedor compartido entre la app y el widget
+en tu dispositivo.</p>
+
+<p><strong>Ajustes → Restablecer valores predeterminados</strong> restablece solo los ajustes de pantalla: decimales,
+formato de números, tema y velocidad de voz. No modifica tu moneda de origen, tu moneda de destino ni el ajuste de
+actualización automática. Eliminar la app borra
+lo que almacenó, excepto el ID de instalación y el secreto del llavero. iOS los conserva en el mismo dispositivo para que tus
+alertas de tipo de cambio sigan funcionando después de reinstalar. <strong>Ajustes → Eliminar alertas y datos del servidor</strong> (en la sección Alertas de tipo de cambio)
+los elimina, y también elimina los datos del servidor.</p>
+
+<h2>4. Cómo llegan los tipos de cambio a la app</h2>
+<p>La app no se comunica directamente con los proveedores de tipos de cambio. Le pide los datos a un pequeño servidor que operamos: un Cloudflare
+Worker. Cloudflare, Inc. actúa como nuestro proveedor de alojamiento y encargado del tratamiento. El servidor obtiene los tipos y
+los guarda en caché, de modo que todos los usuarios reciben los datos de una misma copia compartida.</p>
+
+<p>El servidor usa estas fuentes, en este orden:</p>
+<ul>
+  <li><a href="https://www.exchangerate-api.com/" rel="noopener">ExchangeRate-API</a> (open.er-api.com): la fuente principal de tipos de cambio en vivo</li>
+  <li><a href="https://github.com/fawazahmed0/exchange-api" rel="noopener">Currency API</a> (fawazahmed0, servida mediante Cloudflare y jsDelivr): la fuente de respaldo de tipos de cambio en vivo, la fuente de metales preciosos y criptomonedas, y la única fuente de las gráficas de historial de tipos</li>
+  <li>Los tipos de referencia del <a href="https://www.ecb.europa.eu/" rel="noopener">Banco Central Europeo</a>: se usan solo en el servidor como verificación cruzada. Una tabla de tipos que se desvíe más de 5% del BCE se rechaza. Las cifras del BCE nunca se te muestran.</li>
+</ul>
+<p>Nuestro servidor llama a las tres fuentes; tu dispositivo nunca lo hace. Ellas ven solicitudes nuestras, no tuyas.
+El widget obtiene los tipos de la misma manera.</p>
+
+<p>Una solicitud de tipos de cambio contiene <strong>solo un código de moneda</strong>. No tiene ningún identificador ni nada de lo que
+hayas escrito en la app.</p>
+
+<p>Como cualquier servicio web, Cloudflare registra automáticamente registros técnicos de las solicitudes que incluyen la dirección
+IP desde la que se hizo cada una. Conservamos estos registros solo unos días (Cloudflare Workers Logs). Los usamos
+únicamente para operar y proteger el servicio. Para limitar los abusos, nuestro servidor cuenta brevemente las solicitudes por dirección
+IP, y ese conteo no se almacena. No usamos los registros para identificar a nadie, ni para analítica,
+publicidad o rastreo, y no los compartimos ni los vendemos.</p>
+
+<h2>5. Alertas de tipo de cambio y notificaciones</h2>
+<p>Esta sección aplica si creas una alerta de tipo de cambio. En ese caso almacenamos lo siguiente en nuestro servidor, en
+una base de datos Cloudflare D1. Si compras Pro, el ID de instalación y el hash del secreto también se almacenan allí, para que
+la compra pueda vincularse a tu dispositivo (sección 6):</p>
+
+<table>
+  <tr><th>Qué se almacena</th><th>Por qué</th></tr>
+  <tr><td>Un ID de instalación aleatorio creado en tu dispositivo y un hash unidireccional de un secreto aleatorio. Tu dispositivo envía el secreto con cada solicitud para demostrar que es tuyo; nuestro servidor almacena solo el hash.</td><td>Para que solo tu dispositivo pueda ver o cambiar sus alertas</td></tr>
+  <tr><td>Tu token de notificaciones push de Apple, solo si permites las notificaciones</td><td>Para entregar la alerta</td></tr>
+  <tr><td>El par de monedas de cada alerta, el tipo de cambio objetivo y la dirección (por encima o por debajo), si se repite y cuándo se activó por última vez</td><td>Para compararla con los tipos de cambio cada hora</td></tr>
+</table>
+
+<p>No almacenamos tu nombre, correo electrónico, cuenta de Apple ni ubicación. El ID de instalación no se escribe en los registros
+del servidor. Las notificaciones push se entregan mediante el servicio de notificaciones push de Apple, y
+se les aplica el <a href="https://www.apple.com/legal/privacy/" rel="noopener">aviso de privacidad de Apple</a>.</p>
+
+<p><strong>Conservación.</strong> Las alertas permanecen hasta que las elimines. Una alerta de un solo uso se elimina después de
+activarse. Los datos de un dispositivo que nunca permitió las notificaciones se eliminan automáticamente a los 30 días. Si
+Apple informa que un token push ya no es válido, por ejemplo porque se eliminó la app, se borran
+los datos de ese dispositivo.</p>
+
+<p><strong>Si el servicio termina.</strong> Si dejamos de operar el servidor, por ejemplo porque la app se
+descontinúa, eliminaremos los datos que contenga, incluidas las alertas, los registros de notificaciones push, las credenciales de
+instalación y los registros de compras. No los venderemos ni los transferiremos para ningún otro uso.
+Si la app y su servicio se entregan a un sucesor, los datos se transfieren únicamente para que el mismo
+servicio pueda continuar conforme a este aviso.</p>
+
+<h2>6. Suscripciones y pagos</h2>
+<p>Apple realiza y procesa las compras mediante App Store. Nunca vemos los datos de tu tarjeta, tu
+dirección de facturación ni la información de tu cuenta de Apple.</p>
+
+<p>Si compras Pro (una suscripción o Pro de por vida), la app envía a nuestro servidor el comprobante de compra
+firmado por Apple. El servidor verifica la firma de Apple. Solo conserva el ID de transacción
+original, el producto, la fecha de vencimiento y si se reembolsó. Cada vez que la app actualiza tu estado
+de Pro, también envía tu ID de instalación y tu secreto, para que la compra pueda vincularse a esta instalación. Estos datos
+se vinculan a los ID de instalación que usan la compra, con un máximo de 10 dispositivos por compra. Los usamos solo para decidir cuántas alertas de tipo de cambio puedes
+tener: 1 en el plan gratuito, hasta 50 con Pro. Estos registros de compra se conservan mientras un dispositivo los use. Eliminar alertas y datos del servidor borra el vínculo de este dispositivo, y el registro mismo si ningún otro dispositivo lo usa.</p>
+
+<p>Apple también notifica a nuestro servidor cuando una suscripción se renueva, vence o se reembolsa (notificaciones del servidor de
+App Store). Estos avisos no contienen datos de pago. El tratamiento que Apple da a los datos de compra se rige por el
+<a href="https://www.apple.com/legal/privacy/" rel="noopener">Aviso de privacidad de Apple</a>.</p>
+
+<h2>7. Mapas</h2>
+<p>Las opciones "Cajeros cercanos" y "Casas de cambio cercanas" no usan tu ubicación. Al tocarlas se
+abre Mapas de Apple o Google Maps con una búsqueda de texto como "Cajeros cercanos". Todo lo que ocurra
+después, incluido cómo esas apps usan tu ubicación, está cubierto por el aviso de privacidad de
+<a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple</a> o de
+<a href="https://policies.google.com/privacy" rel="noopener">Google</a>, no por el nuestro.</p>
+
+<h2>8. Voz</h2>
+<p>La función de lectura en voz alta usa las voces integradas en iOS para decir los resultados en voz alta. Solo
+produce sonido. No escucha, no usa el micrófono y no graba nada.</p>
+
+<h2>9. Menores de edad</h2>
+<p>La app es una utilidad de uso general y no está dirigida a menores de 13 años. No recopilamos a sabiendas
+información personal de menores.</p>
+
+<h2>10. Eliminación de tus datos y tus derechos</h2>
+<p>Las leyes de privacidad, como el RGPD (Europa y el Reino Unido) y la CCPA (California), te dan derecho a
+acceder, corregir, exportar o eliminar los datos personales que una empresa conserva sobre ti.</p>
+<p>Los datos de tu dispositivo están bajo tu control (consulta la sección 3). Para los datos de nuestro servidor, usa
+<strong>Ajustes → Eliminar alertas y datos del servidor</strong> (en la sección Alertas de tipo de cambio). Esto elimina de inmediato tus
+alertas, el registro de notificaciones push, la credencial de instalación y los vínculos de compra de nuestro servidor. Después, la app olvida
+su ID de instalación. También puedes escribirnos a
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+<p>No vendemos ni compartimos información personal.</p>
+
+<h2>11. Si estás en la UE, el Reino Unido o Suiza</h2>
+<p><strong>Quién es el responsable.</strong> Jannatul Ferdous Laboni es el responsable del tratamiento de los datos personales
+descritos en las secciones 5 y 6. Contacto:
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+
+<p><strong>Por qué podemos tratarlos.</strong></p>
+<ul>
+  <li>Tipos de cambio y gráficas: no se envían datos personales. Las solicitudes de tipos no llevan ningún identificador, por lo que no se necesita una base legal.</li>
+  <li>Alertas de tipo de cambio, el ID de instalación y el secreto, tu token push y los ajustes de tus alertas: ejecución del servicio que solicitaste (contrato). Enviamos notificaciones solo si las permites en iOS.</li>
+  <li>Verificación y vinculación de las compras de Pro: contrato, y nuestro interés legítimo en evitar el uso indebido del límite de alertas.</li>
+  <li>Datos de tu dispositivo: no los tratamos.</li>
+</ul>
+
+<p><strong>Cuánto tiempo los conservamos.</strong> Como se describe en las secciones 5 y 6. Ajustes → Eliminar alertas y datos del servidor
+los elimina.</p>
+
+<p><strong>Transferencias fuera de tu país.</strong> Nuestro servidor se ejecuta en Cloudflare, que puede tratar datos en
+Estados Unidos y en otros países. Cloudflare se apoya en las Cláusulas Contractuales Tipo de la UE y en el
+Marco de Privacidad de Datos UE-EE. UU., y en sus extensiones para el Reino Unido y Suiza. Apple gestiona las notificaciones push y las
+compras conforme a su propio aviso de privacidad.</p>
+
+<p><strong>Tus derechos.</strong> Puedes solicitarnos el acceso, la rectificación, la supresión, la limitación o la portabilidad de tus
+datos, y puedes oponerte a nuestro tratamiento. Escríbenos a la dirección indicada arriba. También tienes derecho a presentar una queja ante la autoridad de control de
+protección de datos de tu localidad en la UE, ante la Oficina del Comisionado de Información (ICO) en el Reino Unido,
+o ante el Comisionado Federal de Protección de Datos e Información (FDPIC) en Suiza.</p>
+
+<h2>12. Cambios a este aviso</h2>
+<p>Si este aviso cambia, la versión actualizada se publicará en esta página con una nueva fecha en la parte superior.
+Los cambios importantes también se indicarán en las notas de la versión de la app en App Store.</p>
+
+<h2>13. Contacto</h2>
+<p>¿Tienes preguntas sobre este aviso? Escribe a
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+
+<footer>
+  <a href="index.html">Inicio</a>
+  <a href="terms.html">Términos de uso</a>
+</footer>
+
+</main>
+</body>
+</html>

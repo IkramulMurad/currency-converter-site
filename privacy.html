@@ -12,6 +12,7 @@
 <header>
   <h1>Privacy Policy</h1>
   <p class="meta">Currency Converter + Units · Last updated 31 October 2026</p>
+  <p class="meta">English · <a href="fr/privacy.html" lang="fr" hreflang="fr">Français</a> · <a href="es/privacy.html" lang="es" hreflang="es">Español</a></p>
 </header>
 
 <div class="lede">
@@ -33,7 +34,7 @@ You can reach us at <a href="mailto:currencyconverter26@outlook.com">currencycon
   <li>Payment card or billing information</li>
   <li>Your location. The app does not use location services. Your IP address appears briefly in server logs (see section 4), and we do not use it to find where you are.</li>
   <li>Contacts, photos, camera, microphone or health data</li>
-  <li>Advertising identifiers (IDFA) or any cross-app tracking identifier. The random install ID used for rate alerts (section 5) is created by the app, is never shared with anyone else and is not used for tracking.</li>
+  <li>Advertising identifiers (IDFA) or any cross-app tracking identifier. The random install ID used for rate alerts and Pro purchases (sections 5 and 6) is created by the app, is never shared with anyone else and is not used for tracking.</li>
 </ul>
 <p>The app contains no analytics SDK, no advertising SDK and no crash-reporting SDK. Because we
 do not track you across apps or websites owned by other companies, the app never shows the
@@ -51,7 +52,7 @@ it. What is also sent to our server is described in sections 5 and 6.</p>
   <tr><td>Custom rates you enter (Pro)</td><td>To use your own rates in conversions</td></tr>
   <tr><td>App preferences (display, refresh interval, speech speed)</td><td>To keep your settings</td></tr>
   <tr><td>Onboarding and review-prompt flags</td><td>To show the welcome screens and the review request only once</td></tr>
-  <tr><td>A random install ID and secret, kept in the device Keychain</td><td>Used only for rate alerts (see section 5)</td></tr>
+  <tr><td>A random install ID and secret, kept in the device Keychain</td><td>Used for rate alerts and to link Pro purchases to this device (see sections 5 and 6)</td></tr>
 </table>
 
 <p>The home-screen widget reads the same rates from a container shared between the app and the widget
@@ -88,8 +89,9 @@ address, and this count is not stored. We do not use the logs to identify anyone
 advertising or tracking, and we do not share or sell them.</p>
 
 <h2>5. Rate alerts and notifications</h2>
-<p>This section applies only if you create a rate alert. We then store the following on our server, in
-a Cloudflare D1 database:</p>
+<p>This section applies if you create a rate alert. We then store the following on our server, in
+a Cloudflare D1 database. If you buy Pro, the install ID and the secret hash are stored there too, so
+the purchase can be linked to your device (section 6):</p>
 
 <table>
   <tr><th>What is stored</th><th>Why</th></tr>
@@ -119,8 +121,9 @@ billing address or Apple Account information.</p>
 
 <p>If you buy Pro (a subscription or Pro Lifetime), the app sends our server Apple's
 signed proof of purchase. The server checks Apple's signature. It keeps only the original transaction
-ID, the product, the expiry date and whether it was refunded. These are linked to the install IDs that
-use the purchase, at most 10 devices per purchase. We use this only to decide how many rate alerts you
+ID, the product, the expiry date and whether it was refunded. Each time the app refreshes your Pro
+status, it also sends your install ID and secret, so the purchase can be linked to this install. These
+are linked to the install IDs that use the purchase, at most 10 devices per purchase. We use this only to decide how many rate alerts you
 can have: 1 free, up to 50 with Pro. These purchase records are kept while a device uses them. Delete Alerts &amp; Server Data removes this device's link, and the record itself if no other device uses it.</p>
 
 <p>Apple also notifies our server when a subscription renews, expires or is refunded (App Store Server
@@ -152,11 +155,37 @@ its install ID. You can also email us at
 <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 <p>We do not sell or share personal information.</p>
 
-<h2>11. Changes to this policy</h2>
+<h2>11. If you are in the EU, the UK or Switzerland</h2>
+<p><strong>Who is responsible.</strong> Jannatul Ferdous Laboni is the controller of the personal data
+described in sections 5 and 6. Contact:
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+
+<p><strong>Why we may process it.</strong></p>
+<ul>
+  <li>Exchange rates and charts: no personal data is sent. Rate requests carry no identifier, so no legal basis is needed.</li>
+  <li>Rate alerts, the install ID and secret, your push token and your alert settings: performance of the service you asked for (contract). We send notifications only if you allow them in iOS.</li>
+  <li>Verifying and linking Pro purchases: contract, and our legitimate interest in preventing misuse of the alert limit.</li>
+  <li>Data on your device: we do not process it.</li>
+</ul>
+
+<p><strong>How long we keep it.</strong> As described in sections 5 and 6. Settings → Delete Alerts &amp; Server Data
+deletes it.</p>
+
+<p><strong>Transfers outside your country.</strong> Our server runs on Cloudflare, which may process data in
+the United States and other countries. Cloudflare relies on the EU Standard Contractual Clauses and the
+EU-U.S. Data Privacy Framework, and its UK and Swiss extensions. Apple handles push notifications and
+purchases under its own privacy policy.</p>
+
+<p><strong>Your rights.</strong> You can ask us for access, correction, erasure, restriction or portability of your
+data, and you can object to our processing. Email us at the address above. You also have the right to complain to your local
+data protection supervisory authority in the EU, to the Information Commissioner's Office (ICO) in the UK,
+or to the Federal Data Protection and Information Commissioner (FDPIC) in Switzerland.</p>
+
+<h2>12. Changes to this policy</h2>
 <p>If this policy changes, the updated version will be posted on this page with a new date at the top.
 Material changes will also be noted in the app's release notes on the App Store.</p>
 
-<h2>12. Contact</h2>
+<h2>13. Contact</h2>
 <p>Questions about this policy? Write to
 <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 
