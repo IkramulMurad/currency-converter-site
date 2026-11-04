@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Politique de confidentialité — Currency Converter + Units</title>
+<title>Politique de confidentialité — Convertisseur Devises + Unités</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
 
 <header>
   <h1>Politique de confidentialité</h1>
-  <p class="meta">Currency Converter + Units · Dernière mise à jour&nbsp;: 31 octobre 2026</p>
+  <p class="meta">Convertisseur Devises + Unités · Dernière mise à jour&nbsp;: 4 novembre 2026</p>
   <p class="meta"><a href="../privacy.html" lang="en" hreflang="en">English</a> · <span lang="fr-CA">Français</span> · <a href="../es/privacy.html" lang="es" hreflang="es">Español</a></p>
 </header>
 
@@ -23,7 +23,7 @@
 </div>
 
 <h2>1. Qui nous sommes</h2>
-<p>Currency Converter + Units («&nbsp;l’application&nbsp;») est développée et publiée par Jannatul Ferdous Laboni («&nbsp;nous&nbsp;»).
+<p>Convertisseur Devises + Unités (affichée dans certaines régions de l’App Store sous le nom Currency Converter + Units, Currency Converter + Rates ou Convertidor Divisas + Unidades; «&nbsp;l’application&nbsp;») est développée et publiée par Jannatul Ferdous Laboni («&nbsp;nous&nbsp;»).
 Vous pouvez nous joindre à <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 
 <h2>2. Renseignements que nous ne recueillons pas</h2>
@@ -32,7 +32,7 @@ Vous pouvez nous joindre à <a href="mailto:currencyconverter26@outlook.com">cur
   <li>Votre nom, votre adresse courriel, votre numéro de téléphone ou votre adresse postale (à moins que vous ne choisissiez de nous écrire par courriel, auquel cas nous recevons votre adresse courriel et ce que vous écrivez)</li>
   <li>Tout compte ou toute connexion — l’application n’en a aucun</li>
   <li>Les renseignements de carte de paiement ou de facturation</li>
-  <li>Votre position. L’application n’utilise pas les services de localisation. Votre adresse IP apparaît brièvement dans les journaux du serveur (voir la section 4), et nous ne l’utilisons pas pour savoir où vous êtes.</li>
+  <li>Votre position. L’application n’utilise pas les services de localisation. Cloudflare, notre hébergeur, traite votre adresse IP pour livrer chaque requête (voir la section 4); nous ne l’utilisons pas pour savoir où vous êtes.</li>
   <li>Les contacts, les photos, la caméra, le microphone ou les données de santé</li>
   <li>Les identifiants publicitaires (IDFA) ou tout identifiant de suivi entre applications. L’identifiant d’installation aléatoire utilisé pour les alertes de taux et les achats Pro (sections 5 et 6) est créé par l’application, n’est jamais communiqué à qui que ce soit d’autre et n’est pas utilisé à des fins de suivi.</li>
 </ul>
@@ -85,9 +85,9 @@ avez saisi dans l’application.</p>
 conserver des journaux techniques de réseau selon ses propres politiques. Nous avons désactivé les journaux automatiques par requête de notre
 Worker Cloudflare (journaux d’invocation), de sorte que les en-têtes des requêtes, y compris l’identifiant d’installation et son secret, n’y sont pas
 consignés. Les journaux que nous conservons (Cloudflare Workers Logs, quelques jours seulement) contiennent les messages propres à notre serveur,
-comme les erreurs et le nombre de lignes supprimées, qui sont écrits sans l’identifiant d’installation, le secret, le jeton de notification poussée
-ni l’adresse IP. Nous les utilisons uniquement pour exploiter et protéger le service. Pour limiter les abus, notre serveur compte brièvement les requêtes par adresse
-IP (pour IPv6, par bloc réseau /64), et ce compte n’est pas conservé. Il compte aussi, par jour, combien d’alertes de taux gratuites sont créées depuis chaque réseau (une adresse IPv4 ou un /64 IPv6). Ce compte est conservé au plus une journée, sous une empreinte à sens unique produite avec une valeur aléatoire qui change chaque jour. Le compte et cette valeur sont supprimés à la fin de la journée. Nous n’utilisons pas les journaux pour identifier qui que ce soit, ni à des fins d’analyse,
+comme les erreurs et le nombre de lignes supprimées et, lorsqu’une alerte ne peut pas être livrée, l’identifiant aléatoire de cette alerte et l’erreur. Ces messages sont écrits sans l’identifiant d’installation, le secret, le jeton de notification poussée
+ni l’adresse IP, et l’identifiant aléatoire d’une alerte ne peut être associé à votre installation que par l’intermédiaire de notre base de données. Nous les utilisons uniquement pour exploiter et protéger le service. Pour limiter les abus, notre serveur compte brièvement les requêtes par adresse
+IP (pour IPv6, par bloc réseau /64, et pour les requêtes qui écrivent des données aussi par bloc /48), et ce compte n’est pas conservé. Il compte aussi, par jour, combien d’alertes de taux gratuites sont créées et combien de nouvelles installations s’enregistrent auprès de notre serveur depuis chaque réseau (une adresse IPv4, ou un /64, un /56 et un /48 IPv6). Il compte aussi, par installation, combien de fois par jour l’enregistrement de l’appareil change et combien d’alertes sont créées, avec toutes les offres. Ces comptes sont conservés au plus une journée, sous une empreinte à sens unique produite avec une valeur aléatoire qui change chaque jour. Les comptes et cette valeur sont supprimés à la fin de la journée. Nous n’utilisons pas les journaux pour identifier qui que ce soit, ni à des fins d’analyse,
 de publicité ou de suivi, et nous ne les communiquons ni ne les vendons.</p>
 
 <h2>5. Alertes de taux et notifications</h2>
@@ -107,11 +107,11 @@ l’achat puisse être associé à votre appareil (section 6)&nbsp;:</p>
 journaux du serveur. Les notifications poussées sont livrées par le service Apple Push Notification (APNs), et
 la <a href="https://www.apple.com/legal/privacy/" rel="noopener">politique de confidentialité d’Apple</a> s’y applique.</p>
 
-<p><strong>Conservation.</strong> Les alertes restent jusqu’à ce que vous les supprimiez. Une alerte unique est supprimée après
+<p><strong>Conservation.</strong> Les alertes restent jusqu’à ce que vous les supprimiez. Si Pro prend fin, les alertes au-delà de la limite de l’offre gratuite (1) sont mises en pause, puis supprimées 30 jours après la fin de Pro, à moins que vous ne repreniez Pro; votre plus ancienne alerte est conservée. Une alerte unique est supprimée après
 son déclenchement. Les données d’un appareil qui n’a jamais autorisé les notifications sont supprimées automatiquement après 30 jours. Si
 Apple signale qu’un jeton de notification poussée n’est plus valide, par exemple parce que l’application a été supprimée, les données de cet
 appareil sont effacées, et un appareil est aussi retiré après 3 échecs graves consécutifs de livraison de notifications poussées. Le jeton de notification
-poussée d’un appareil et ses alertes sont supprimés 60 jours après la dernière ouverture de l’application.</p>
+poussée d’un appareil et ses alertes sont supprimés 60 jours après le dernier enregistrement de l’application pour les notifications. L’application s’enregistre chaque fois qu’elle s’ouvre ou revient au premier plan tant que les notifications sont autorisées (environ une fois par jour au plus); si les notifications sont désactivées, les 60 jours courent donc à partir du dernier enregistrement.</p>
 
 <p><strong>Si le service prend fin.</strong> Si nous cessons d’exploiter le serveur, par exemple parce que l’application est
 abandonnée, nous supprimerons les données qu’il contient, y compris les alertes, les enregistrements de notifications poussées, les identifiants
@@ -124,21 +124,22 @@ service puisse se poursuivre en vertu de la présente politique.</p>
 votre adresse de facturation ni les renseignements de votre compte Apple.</p>
 
 <p>Si vous achetez Pro (un abonnement ou Pro à vie), l’application envoie à notre serveur la preuve d’achat
-signée d’Apple. Le serveur vérifie la signature d’Apple. Il ne conserve que l’identifiant de la transaction d’origine, le produit, la date d’expiration et
-l’indication d’un éventuel remboursement. Chaque fois que l’application vérifie votre statut Pro,
+signée d’Apple. Le serveur vérifie la signature d’Apple. Il conserve l’identifiant de la transaction d’origine et celui de la dernière transaction, le produit, la date d’achat, la date d’expiration,
+l’indication d’un remboursement ou d’une révocation et sa date, l’indication d’un achat de test (sandbox), et la date de la dernière
+mise à jour de l’enregistrement. Chaque fois que l’application vérifie votre statut Pro,
 elle envoie aussi votre identifiant d’installation et votre secret, afin que l’achat puisse être associé à cette installation. Ces
-données sont associées aux identifiants d’installation qui utilisent l’achat, soit au plus 10 appareils par achat. Nous les utilisons uniquement
+données sont associées aux identifiants d’installation qui utilisent l’achat (avec la date de chaque association), soit au plus 10 appareils par achat. Nous les utilisons uniquement
 pour décider du nombre d’alertes de taux que vous pouvez avoir&nbsp;: 1 gratuite, jusqu’à 50 avec Pro.</p>
 
 <p>Apple avise aussi notre serveur lorsqu’un abonnement est acheté, renouvelé, expire ou est remboursé (notifications du serveur
-App Store). Chaque avis amène notre serveur à stocker un enregistrement de cet achat (les quatre mêmes éléments que ci-dessus),
+App Store). Chaque avis amène notre serveur à stocker un enregistrement de cet achat (les mêmes éléments que ci-dessus),
 <strong>même si vous n’utilisez jamais les alertes de taux</strong> et qu’aucun appareil ne l’a associé. Ces avis ne contiennent aucun détail de paiement.
 Le traitement des données d’achat par Apple est régi par la
 <a href="https://www.apple.com/legal/privacy/" rel="noopener">politique de confidentialité d’Apple</a>.</p>
 
 <p><strong>Durée de conservation des enregistrements d’achat.</strong> Un enregistrement d’achat est conservé tant qu’il est associé à un
 appareil. Un enregistrement qui n’est associé à aucun appareil est supprimé 30 jours après l’expiration de l’achat (Pro à vie
-n’expire jamais; il est donc supprimé 30 jours après la dernière fois que nous l’avons reçu d’Apple ou de votre appareil). L’enregistrement d’un achat
+n’expire jamais; il est donc supprimé 30 jours après la dernière modification de l’enregistrement; recevoir de nouveau le même enregistrement, sans changement, ne prolonge pas ce délai, et l’application le renvoie la prochaine fois qu’elle s’ouvre). L’enregistrement d’un achat
 remboursé ou révoqué est conservé, sans lien avec aucun appareil, afin qu’il ne puisse pas être rétabli.
 Supprimer les alertes et les données du serveur efface le lien de cet appareil (section 10).</p>
 
@@ -158,7 +159,7 @@ produire du son. Elle n’écoute pas, n’utilise pas le microphone et n’enre
 de renseignements personnels auprès d’enfants.</p>
 
 <h2>10. Suppression de vos données et vos droits</h2>
-<p>Les lois sur la protection de la vie privée, comme le RGPD (Europe et Royaume-Uni) et le CCPA (Californie), vous donnent le droit
+<p>Les lois sur la protection de la vie privée, comme le RGPD (Europe et Royaume-Uni), la Loi 25 (Québec), la LPRPDE (Canada) et le CCPA (Californie), vous donnent le droit
 d’accéder aux renseignements personnels qu’une entreprise détient à votre sujet, de les corriger, de les exporter ou de les supprimer.</p>
 <p>Les données de votre appareil sont sous votre contrôle (voir la section 3). Pour les données de notre serveur, utilisez
 <strong>Réglages → Supprimer les alertes et les données du serveur</strong> (dans la section Alertes de taux). Cela supprime immédiatement vos
@@ -180,12 +181,12 @@ décrites aux sections 5 et 6. Coordonnées&nbsp;:
   <li>Taux de change et graphiques&nbsp;: aucune donnée personnelle n’est envoyée. Les requêtes de taux ne comportent aucun identifiant; aucune base légale n’est donc nécessaire.</li>
   <li>Alertes de taux, identifiant d’installation et secret, jeton de notification poussée et paramètres de vos alertes&nbsp;: exécution du service que vous avez demandé (contrat). Nous n’envoyons des notifications que si vous les autorisez dans iOS.</li>
   <li>Vérification et association des achats Pro&nbsp;: contrat, et notre intérêt légitime à prévenir l’usage abusif de la limite d’alertes.</li>
-  <li>Prévention des abus (comptes de requêtes par réseau et compte quotidien des alertes de taux gratuites)&nbsp;: notre intérêt légitime à prévenir les abus du service.</li>
+  <li>Prévention des abus (comptes de requêtes par réseau, comptes quotidiens par réseau des alertes de taux gratuites et des nouvelles installations, et comptes quotidiens par installation des changements d’enregistrement de l’appareil et des alertes créées)&nbsp;: notre intérêt légitime à prévenir les abus du service.</li>
   <li>Données de votre appareil&nbsp;: nous ne les traitons pas.</li>
 </ul>
 
-<p><strong>Durée de conservation.</strong> Comme il est décrit aux sections 5, 6 et 10. Les alertes restent jusqu’à ce que vous les supprimiez, et le jeton de notification
-poussée d’un appareil et ses alertes sont supprimés 60 jours après la dernière ouverture de l’application. Un enregistrement d’achat est conservé tant qu’il est associé
+<p><strong>Durée de conservation.</strong> Comme il est décrit aux sections 5, 6 et 10. Les alertes restent jusqu’à ce que vous les supprimiez (si Pro prend fin, les alertes au-delà de la limite de l’offre gratuite sont mises en pause, puis supprimées 30 jours après la fin de Pro, à moins que vous ne repreniez Pro; votre plus ancienne alerte est conservée), et le jeton de notification
+poussée d’un appareil et ses alertes sont supprimés 60 jours après le dernier enregistrement de l’application pour les notifications. Un enregistrement d’achat est conservé tant qu’il est associé
 à un appareil, et un enregistrement sans lien est supprimé 30 jours après l’expiration de l’achat; l’enregistrement d’un remboursement est conservé.
 Réglages → Supprimer les alertes et les données du serveur supprime immédiatement vos alertes, votre enregistrement de notifications poussées, vos identifiants d’installation
 et vos liens d’achat, sauf l’enregistrement d’un remboursement; les avis d’Apple et la prochaine vérification de Pro par l’application peuvent stocker de nouveau un enregistrement d’achat.</p>
@@ -199,6 +200,21 @@ achats selon sa propre politique de confidentialité.</p>
 et vous pouvez vous opposer à notre traitement. Écrivez-nous à l’adresse ci-dessus. Vous avez aussi le droit de déposer une plainte auprès de l’autorité locale de contrôle de la
 protection des données de l’UE, auprès de l’Information Commissioner’s Office (ICO) au Royaume-Uni,
 ou auprès du Préposé fédéral à la protection des données et à la transparence (PFPDT) en Suisse.</p>
+
+<h2>11b. Si vous êtes au Québec ou ailleurs au Canada</h2>
+<p><strong>Personne responsable de la protection des renseignements personnels.</strong> Jannatul Ferdous Laboni,
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+
+<p><strong>Où sont conservées vos données.</strong> Les données décrites aux sections 5 et 6 (identifiant d’installation, jeton de notification poussée, alertes et
+enregistrements d’achat) sont stockées chez Cloudflare, notre hébergeur, et peuvent être traitées à l’extérieur du Québec et du Canada, aux
+États-Unis et dans d’autres pays. Apple gère les notifications poussées et les achats selon sa propre politique de confidentialité.</p>
+
+<p><strong>Vos droits.</strong> Vous pouvez demander l’accès aux renseignements personnels que nous détenons à votre sujet, leur rectification ou leur suppression,
+ou retirer votre consentement. Vous pouvez supprimer vos données et retirer votre consentement en tout temps avec
+<strong>Réglages → Supprimer les alertes et les données du serveur</strong> (section 10), ou en écrivant à la personne responsable à l’adresse ci-dessus.</p>
+
+<p><strong>Plaintes.</strong> Vous pouvez déposer une plainte auprès de la Commission d’accès à l’information du Québec (CAI)
+ou du Commissariat à la protection de la vie privée du Canada (CPVP).</p>
 
 <h2>12. Modifications de la présente politique</h2>
 <p>Si la présente politique change, la version mise à jour sera publiée sur cette page, avec une nouvelle date en haut.

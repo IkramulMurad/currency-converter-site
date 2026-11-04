@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aviso de privacidad — Currency Converter + Units</title>
+<title>Política de privacidad — Convertidor Divisas + Unidades</title>
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <main>
 
 <header>
-  <h1>Aviso de privacidad</h1>
-  <p class="meta">Currency Converter + Units · Última actualización: 31 de octubre de 2026</p>
+  <h1>Política de privacidad</h1>
+  <p class="meta">Convertidor Divisas + Unidades · Última actualización: 4 de noviembre de 2026</p>
   <p class="meta"><a href="../privacy.html" lang="en" hreflang="en">English</a> · <a href="../fr/privacy.html" lang="fr" hreflang="fr">Français</a> · <span lang="es-MX">Español</span></p>
 </header>
 
@@ -23,7 +23,7 @@
 </div>
 
 <h2>1. Quiénes somos</h2>
-<p>Currency Converter + Units ("la app") es desarrollada y publicada por Jannatul Ferdous Laboni ("nosotros").
+<p>Convertidor Divisas + Unidades (que en algunas regiones de App Store aparece como Currency Converter + Units, Currency Converter + Rates o Convertisseur Devises + Unités; "la app") es desarrollada y publicada por Jannatul Ferdous Laboni ("nosotros").
 Puedes comunicarte con nosotros en <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 
 <h2>2. Información que no recopilamos</h2>
@@ -32,7 +32,7 @@ Puedes comunicarte con nosotros en <a href="mailto:currencyconverter26@outlook.c
   <li>Tu nombre, correo electrónico, número de teléfono o domicilio postal (a menos que decidas escribirnos por correo electrónico, en cuyo caso recibimos tu dirección de correo electrónico y lo que escribas)</li>
   <li>Ninguna cuenta ni inicio de sesión: la app no tiene ninguno</li>
   <li>Información de tarjetas de pago o de facturación</li>
-  <li>Tu ubicación. La app no usa servicios de localización. Tu dirección IP aparece brevemente en los registros del servidor (consulta la sección 4), y no la usamos para saber dónde estás.</li>
+  <li>Tu ubicación. La app no usa servicios de localización. Cloudflare, nuestro proveedor de alojamiento, trata tu dirección IP para entregar cada solicitud (consulta la sección 4); no la usamos para saber dónde estás.</li>
   <li>Contactos, fotos, cámara, micrófono ni datos de salud</li>
   <li>Identificadores de publicidad (IDFA) ni ningún identificador de seguimiento entre apps. El ID de instalación aleatorio que se usa para las alertas de tipo de cambio y las compras de Pro (secciones 5 y 6) lo crea la app, nunca se comparte con nadie más y no se usa para rastrearte.</li>
 </ul>
@@ -59,7 +59,7 @@ Lo que además se envía a nuestro servidor se describe en las secciones 5 y 6.<
 en tu dispositivo.</p>
 
 <p><strong>Ajustes → Restablecer valores predeterminados</strong> restablece solo los ajustes de pantalla: decimales,
-formato de números, tema y velocidad de voz. No modifica tu moneda de origen, tu moneda de destino ni el ajuste de
+formato de números, tema y velocidad de voz. No modifica tu moneda principal, la moneda a la que más conviertes ni el ajuste de
 actualización automática. Eliminar la app borra
 lo que almacenó, excepto el ID de instalación y el secreto del llavero. iOS los conserva en el mismo dispositivo para que tus
 alertas de tipo de cambio sigan funcionando después de reinstalar. <strong>Ajustes → Eliminar alertas y datos del servidor</strong> (en la sección Alertas de tipo de cambio)
@@ -86,9 +86,9 @@ hayas escrito en la app.</p>
 solicitud para poder entregarla, y puede conservar registros técnicos de red conforme a sus propias políticas. Desactivamos los registros
 automáticos por solicitud de nuestro Worker de Cloudflare (registros de invocación), de modo que los encabezados de las solicitudes,
 incluidos el ID de instalación y su secreto, no se anotan en ellos. Los registros que sí conservamos (Cloudflare Workers Logs, solo unos días)
-contienen los mensajes propios de nuestro servidor, como errores y el número de filas eliminadas, que se escriben sin el ID de instalación,
-el secreto, el token push ni la dirección IP. Los usamos únicamente para operar y proteger el servicio. Para limitar los abusos, nuestro servidor cuenta brevemente las solicitudes por dirección
-IP (en IPv6, por bloque de red /64), y ese conteo no se almacena. También cuenta, por día, cuántas alertas de tipo de cambio gratuitas se crean desde cada red (una dirección IPv4 o un /64 de IPv6). Ese conteo se almacena como máximo un día, bajo un hash unidireccional hecho con un valor aleatorio que cambia cada día. El conteo y ese valor se eliminan al terminar el día. No usamos los registros para identificar a nadie, ni para analítica,
+contienen los mensajes propios de nuestro servidor, como errores y el número de filas eliminadas y, cuando una alerta no puede entregarse, el ID aleatorio de esa alerta y el error. Esos mensajes se escriben sin el ID de instalación,
+el secreto, el token push ni la dirección IP, y el ID aleatorio de una alerta solo puede vincularse con tu instalación mediante nuestra base de datos. Los usamos únicamente para operar y proteger el servicio. Para limitar los abusos, nuestro servidor cuenta brevemente las solicitudes por dirección
+IP (en IPv6, por bloque de red /64, y en las solicitudes que escriben datos también por bloque /48), y ese conteo no se almacena. También cuenta, por día, cuántas alertas de tipo de cambio gratuitas se crean y cuántas instalaciones nuevas se registran en nuestro servidor desde cada red (una dirección IPv4, o un /64, un /56 y un /48 de IPv6). También cuenta, por instalación, cuántas veces al día cambia el registro del dispositivo y cuántas alertas se crean, en todos los planes. Esos conteos se almacenan como máximo un día, bajo un hash unidireccional hecho con un valor aleatorio que cambia cada día. Los conteos y ese valor se eliminan al terminar el día. No usamos los registros para identificar a nadie, ni para analítica,
 publicidad o rastreo, y no los compartimos ni los vendemos.</p>
 
 <h2>5. Alertas de tipo de cambio y notificaciones</h2>
@@ -106,49 +106,50 @@ la compra pueda vincularse a tu dispositivo (sección 6):</p>
 
 <p>No almacenamos tu nombre, correo electrónico, cuenta de Apple ni ubicación. El ID de instalación no se escribe en los registros
 del servidor. Las notificaciones push se entregan mediante el servicio de notificaciones push de Apple, y
-se les aplica el <a href="https://www.apple.com/legal/privacy/" rel="noopener">aviso de privacidad de Apple</a>.</p>
+se les aplica la <a href="https://www.apple.com/legal/privacy/" rel="noopener">política de privacidad de Apple</a>.</p>
 
-<p><strong>Conservación.</strong> Las alertas permanecen hasta que las elimines. Una alerta de un solo uso se elimina después de
+<p><strong>Conservación.</strong> Las alertas permanecen hasta que las elimines. Si Pro termina, las alertas que excedan el límite del plan gratuito (1) se ponen en pausa y se eliminan 30 días después de que terminó Pro, a menos que vuelvas a Pro; se conserva tu alerta más antigua. Una alerta de un solo uso se elimina después de
 activarse. Los datos de un dispositivo que nunca permitió las notificaciones se eliminan automáticamente a los 30 días. Si
 Apple informa que un token push ya no es válido, por ejemplo porque se eliminó la app, se borran
 los datos de ese dispositivo, y un dispositivo también se elimina tras 3 fallos graves consecutivos de entrega de notificaciones push. El token push
-de un dispositivo y sus alertas se eliminan 60 días después de la última vez que se abrió la app.</p>
+de un dispositivo y sus alertas se eliminan 60 días después de la última vez que la app se registró para recibir notificaciones. La app se registra cada vez que se abre o vuelve a primer plano mientras las notificaciones están permitidas (como máximo una vez al día aproximadamente), así que con las notificaciones desactivadas los 60 días cuentan desde el último registro.</p>
 
 <p><strong>Si el servicio termina.</strong> Si dejamos de operar el servidor, por ejemplo porque la app se
 descontinúa, eliminaremos los datos que contenga, incluidas las alertas, los registros de notificaciones push, las credenciales de
 instalación y los registros de compras. No los venderemos ni los transferiremos para ningún otro uso.
 Si la app y su servicio se entregan a un sucesor, los datos se transfieren únicamente para que el mismo
-servicio pueda continuar conforme a este aviso.</p>
+servicio pueda continuar conforme a esta política.</p>
 
 <h2>6. Suscripciones y pagos</h2>
 <p>Apple realiza y procesa las compras mediante App Store. Nunca vemos los datos de tu tarjeta, tu
 dirección de facturación ni la información de tu cuenta de Apple.</p>
 
 <p>Si compras Pro (una suscripción o Pro de por vida), la app envía a nuestro servidor el comprobante de compra
-firmado por Apple. El servidor verifica la firma de Apple. Solo conserva el ID de transacción
-original, el producto, la fecha de vencimiento y si se reembolsó. Cada vez que la app verifica tu estado
+firmado por Apple. El servidor verifica la firma de Apple. Conserva el ID de la transacción
+original y el de la última transacción, el producto, la fecha de compra, la fecha de vencimiento, si se reembolsó o se revocó y cuándo,
+si fue una compra de prueba (sandbox) y cuándo se actualizó el registro por última vez. Cada vez que la app verifica tu estado
 de Pro, también envía tu ID de instalación y tu secreto, para que la compra pueda vincularse a esta instalación. Estos datos
-se vinculan a los ID de instalación que usan la compra, con un máximo de 10 dispositivos por compra. Los usamos solo para decidir
+se vinculan a los ID de instalación que usan la compra (con la fecha de cada vínculo), con un máximo de 10 dispositivos por compra. Los usamos solo para decidir
 cuántas alertas de tipo de cambio puedes tener: 1 en el plan gratuito, hasta 50 con Pro.</p>
 
 <p>Apple también notifica a nuestro servidor cuando una suscripción se compra, se renueva, vence o se reembolsa (notificaciones del
-servidor de App Store). Cada aviso hace que nuestro servidor almacene un registro de esa compra (los mismos cuatro datos de arriba),
+servidor de App Store). Cada aviso hace que nuestro servidor almacene un registro de esa compra (los mismos datos de arriba),
 <strong>aunque nunca uses las alertas de tipo de cambio</strong> y ningún dispositivo la haya vinculado. Estos avisos no contienen datos de pago.
 El tratamiento que Apple da a los datos de compra se rige por el
-<a href="https://www.apple.com/legal/privacy/" rel="noopener">Aviso de privacidad de Apple</a>.</p>
+<a href="https://www.apple.com/legal/privacy/" rel="noopener">Política de privacidad de Apple</a>.</p>
 
 <p><strong>Cuánto tiempo se conservan los registros de compra.</strong> Un registro de compra se conserva mientras esté vinculado a un
 dispositivo. Un registro que no está vinculado a ningún dispositivo se elimina 30 días después de que vence la compra (Pro de por vida
-nunca vence, así que se eliminan 30 días después de la última vez que lo recibimos de Apple o de tu dispositivo). El registro de una compra
+nunca vence, así que se elimina 30 días después de la última vez que el registro cambió; recibir de nuevo el mismo registro sin cambios no amplía ese plazo, y la app lo vuelve a enviar la próxima vez que se abre). El registro de una compra
 reembolsada o revocada se conserva, sin vínculo con ningún dispositivo, para que no pueda restaurarse.
 Eliminar alertas y datos del servidor borra el vínculo de este dispositivo (sección 10).</p>
 
 <h2>7. Mapas</h2>
 <p>Las opciones "Cajeros cercanos" y "Casas de cambio cercanas" no usan tu ubicación. Al tocarlas se
 abre Mapas de Apple o Google Maps con una búsqueda de texto como "Cajeros cercanos". Todo lo que ocurra
-después, incluido cómo esas apps usan tu ubicación, está cubierto por el aviso de privacidad de
+después, incluido cómo esas apps usan tu ubicación, está cubierto por la política de privacidad de
 <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple</a> o de
-<a href="https://policies.google.com/privacy" rel="noopener">Google</a>, no por el nuestro.</p>
+<a href="https://policies.google.com/privacy" rel="noopener">Google</a>, no por la nuestra.</p>
 
 <h2>8. Voz</h2>
 <p>La función de lectura en voz alta usa las voces integradas en iOS para decir los resultados en voz alta. Solo
@@ -159,7 +160,7 @@ produce sonido. No escucha, no usa el micrófono y no graba nada.</p>
 información personal de menores.</p>
 
 <h2>10. Eliminación de tus datos y tus derechos</h2>
-<p>Las leyes de privacidad, como el RGPD (Europa y el Reino Unido) y la CCPA (California), te dan derecho a
+<p>Las leyes de privacidad, como el RGPD (Europa y el Reino Unido), la Ley 25 (Quebec), la ley PIPEDA (Canadá) y la CCPA (California), te dan derecho a
 acceder, corregir, exportar o eliminar los datos personales que una empresa conserva sobre ti.</p>
 <p>Los datos de tu dispositivo están bajo tu control (consulta la sección 3). Para los datos de nuestro servidor, usa
 <strong>Ajustes → Eliminar alertas y datos del servidor</strong> (en la sección Alertas de tipo de cambio). Esto elimina de inmediato tus
@@ -181,12 +182,12 @@ descritos en las secciones 5 y 6. Contacto:
   <li>Tipos de cambio y gráficas: no se envían datos personales. Las solicitudes de tipos no llevan ningún identificador, por lo que no se necesita una base legal.</li>
   <li>Alertas de tipo de cambio, el ID de instalación y el secreto, tu token push y los ajustes de tus alertas: ejecución del servicio que solicitaste (contrato). Enviamos notificaciones solo si las permites en iOS.</li>
   <li>Verificación y vinculación de las compras de Pro: contrato, y nuestro interés legítimo en evitar el uso indebido del límite de alertas.</li>
-  <li>Prevención de abusos (conteos de solicitudes por red y conteo diario de alertas gratuitas): nuestro interés legítimo en evitar el abuso del servicio.</li>
+  <li>Prevención de abusos (conteos de solicitudes por red, conteos diarios por red de alertas gratuitas y de instalaciones nuevas, y conteos diarios por instalación de cambios en el registro del dispositivo y de alertas creadas): nuestro interés legítimo en evitar el abuso del servicio.</li>
   <li>Datos de tu dispositivo: no los tratamos.</li>
 </ul>
 
-<p><strong>Cuánto tiempo los conservamos.</strong> Como se describe en las secciones 5, 6 y 10. Las alertas permanecen hasta que las elimines, y el token
-push de un dispositivo y sus alertas se eliminan 60 días después de la última vez que se abrió la app. Un registro de compra se conserva mientras esté
+<p><strong>Cuánto tiempo los conservamos.</strong> Como se describe en las secciones 5, 6 y 10. Las alertas permanecen hasta que las elimines (si Pro termina, las alertas que excedan el límite del plan gratuito se ponen en pausa y se eliminan 30 días después de que terminó Pro, a menos que vuelvas a Pro; se conserva tu alerta más antigua), y el token
+push de un dispositivo y sus alertas se eliminan 60 días después de la última vez que la app se registró para recibir notificaciones. Un registro de compra se conserva mientras esté
 vinculado a un dispositivo, y uno sin vínculo se elimina 30 días después de que vence la compra; el registro de un reembolso se conserva.
 Ajustes → Eliminar alertas y datos del servidor elimina de inmediato tus alertas, el registro de notificaciones push, la credencial de instalación y los
 vínculos de compra, salvo el registro de un reembolso; los avisos de Apple y la siguiente verificación de Pro de la app pueden volver a almacenar un registro de compra.</p>
@@ -194,19 +195,34 @@ vínculos de compra, salvo el registro de un reembolso; los avisos de Apple y la
 <p><strong>Transferencias fuera de tu país.</strong> Nuestro servidor se ejecuta en Cloudflare, que puede tratar datos en
 Estados Unidos y en otros países. Cloudflare se apoya en las Cláusulas Contractuales Tipo de la UE y en el
 Marco de Privacidad de Datos UE-EE. UU., y en sus extensiones para el Reino Unido y Suiza. Apple gestiona las notificaciones push y las
-compras conforme a su propio aviso de privacidad.</p>
+compras conforme a su propia política de privacidad.</p>
 
 <p><strong>Tus derechos.</strong> Puedes solicitarnos el acceso, la rectificación, la supresión, la limitación o la portabilidad de tus
 datos, y puedes oponerte a nuestro tratamiento. Escríbenos a la dirección indicada arriba. También tienes derecho a presentar una queja ante la autoridad de control de
 protección de datos de tu localidad en la UE, ante la Oficina del Comisionado de Información (ICO) en el Reino Unido,
 o ante el Comisionado Federal de Protección de Datos e Información (FDPIC) en Suiza.</p>
 
-<h2>12. Cambios a este aviso</h2>
-<p>Si este aviso cambia, la versión actualizada se publicará en esta página con una nueva fecha en la parte superior.
+<h2>11b. Si estás en Quebec o en otra parte de Canadá</h2>
+<p><strong>Persona responsable de la protección de la información personal.</strong> Jannatul Ferdous Laboni,
+<a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
+
+<p><strong>Dónde se conservan tus datos.</strong> Los datos descritos en las secciones 5 y 6 (ID de instalación, token push, alertas y
+registros de compra) se almacenan en Cloudflare, nuestro proveedor de alojamiento, y pueden tratarse fuera de Quebec y de Canadá, en
+Estados Unidos y en otros países. Apple gestiona las notificaciones push y las compras conforme a su propia política de privacidad.</p>
+
+<p><strong>Tus derechos.</strong> Puedes solicitar el acceso, la corrección o la eliminación de la información personal que conservamos sobre ti,
+o retirar tu consentimiento. Puedes eliminar tus datos y retirar tu consentimiento en cualquier momento con
+<strong>Ajustes → Eliminar alertas y datos del servidor</strong> (sección 10), o escribiendo a la persona responsable a la dirección indicada arriba.</p>
+
+<p><strong>Quejas.</strong> Puedes presentar una queja ante la Commission d'accès à l'information du Québec (CAI, Comisión de Acceso a la Información de Quebec)
+o ante la Oficina del Comisionado de Privacidad de Canadá (OPC).</p>
+
+<h2>12. Cambios a esta política</h2>
+<p>Si esta política cambia, la versión actualizada se publicará en esta página con una nueva fecha en la parte superior.
 Los cambios importantes también se indicarán en las notas de la versión de la app en App Store.</p>
 
 <h2>13. Contacto</h2>
-<p>¿Tienes preguntas sobre este aviso? Escribe a
+<p>¿Tienes preguntas sobre esta política? Escribe a
 <a href="mailto:currencyconverter26@outlook.com">currencyconverter26@outlook.com</a>.</p>
 
 <footer>
