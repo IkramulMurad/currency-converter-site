@@ -125,14 +125,15 @@ servicio pueda continuar conforme a esta política.</p>
 dirección de facturación ni la información de tu cuenta de Apple.</p>
 
 <p>Si compras Pro (una suscripción o Pro de por vida), la app envía a nuestro servidor el comprobante de compra
-firmado por Apple. El servidor verifica la firma de Apple. Solo conserva el ID de transacción
-original, el producto, la fecha de vencimiento y si se reembolsó. Cada vez que la app verifica tu estado
+firmado por Apple. El servidor verifica la firma de Apple. Conserva el ID de la transacción
+original y el de la última transacción, el producto, la fecha de compra, la fecha de vencimiento, si se reembolsó o se revocó y cuándo,
+si fue una compra de prueba (sandbox) y cuándo se actualizó el registro por última vez. Cada vez que la app verifica tu estado
 de Pro, también envía tu ID de instalación y tu secreto, para que la compra pueda vincularse a esta instalación. Estos datos
-se vinculan a los ID de instalación que usan la compra, con un máximo de 10 dispositivos por compra. Los usamos solo para decidir
+se vinculan a los ID de instalación que usan la compra (con la fecha de cada vínculo), con un máximo de 10 dispositivos por compra. Los usamos solo para decidir
 cuántas alertas de tipo de cambio puedes tener: 1 en el plan gratuito, hasta 50 con Pro.</p>
 
 <p>Apple también notifica a nuestro servidor cuando una suscripción se compra, se renueva, vence o se reembolsa (notificaciones del
-servidor de App Store). Cada aviso hace que nuestro servidor almacene un registro de esa compra (los mismos cuatro datos de arriba),
+servidor de App Store). Cada aviso hace que nuestro servidor almacene un registro de esa compra (los mismos datos de arriba),
 <strong>aunque nunca uses las alertas de tipo de cambio</strong> y ningún dispositivo la haya vinculado. Estos avisos no contienen datos de pago.
 El tratamiento que Apple da a los datos de compra se rige por el
 <a href="https://www.apple.com/legal/privacy/" rel="noopener">Política de privacidad de Apple</a>.</p>

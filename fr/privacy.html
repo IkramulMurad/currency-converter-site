@@ -124,14 +124,15 @@ service puisse se poursuivre en vertu de la présente politique.</p>
 votre adresse de facturation ni les renseignements de votre compte Apple.</p>
 
 <p>Si vous achetez Pro (un abonnement ou Pro à vie), l’application envoie à notre serveur la preuve d’achat
-signée d’Apple. Le serveur vérifie la signature d’Apple. Il ne conserve que l’identifiant de la transaction d’origine, le produit, la date d’expiration et
-l’indication d’un éventuel remboursement. Chaque fois que l’application vérifie votre statut Pro,
+signée d’Apple. Le serveur vérifie la signature d’Apple. Il conserve l’identifiant de la transaction d’origine et celui de la dernière transaction, le produit, la date d’achat, la date d’expiration,
+l’indication d’un remboursement ou d’une révocation et sa date, l’indication d’un achat de test (sandbox), et la date de la dernière
+mise à jour de l’enregistrement. Chaque fois que l’application vérifie votre statut Pro,
 elle envoie aussi votre identifiant d’installation et votre secret, afin que l’achat puisse être associé à cette installation. Ces
-données sont associées aux identifiants d’installation qui utilisent l’achat, soit au plus 10 appareils par achat. Nous les utilisons uniquement
+données sont associées aux identifiants d’installation qui utilisent l’achat (avec la date de chaque association), soit au plus 10 appareils par achat. Nous les utilisons uniquement
 pour décider du nombre d’alertes de taux que vous pouvez avoir&nbsp;: 1 gratuite, jusqu’à 50 avec Pro.</p>
 
 <p>Apple avise aussi notre serveur lorsqu’un abonnement est acheté, renouvelé, expire ou est remboursé (notifications du serveur
-App Store). Chaque avis amène notre serveur à stocker un enregistrement de cet achat (les quatre mêmes éléments que ci-dessus),
+App Store). Chaque avis amène notre serveur à stocker un enregistrement de cet achat (les mêmes éléments que ci-dessus),
 <strong>même si vous n’utilisez jamais les alertes de taux</strong> et qu’aucun appareil ne l’a associé. Ces avis ne contiennent aucun détail de paiement.
 Le traitement des données d’achat par Apple est régi par la
 <a href="https://www.apple.com/legal/privacy/" rel="noopener">politique de confidentialité d’Apple</a>.</p>

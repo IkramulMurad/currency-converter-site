@@ -126,15 +126,16 @@ service can continue under this policy.</p>
 billing address or Apple Account information.</p>
 
 <p>If you buy Pro (a subscription or Pro Lifetime), the app sends our server Apple's
-signed proof of purchase. The server checks Apple's signature. It keeps only the original transaction
-ID, the product, the expiry date and whether it was refunded. Each time the app verifies your Pro
+signed proof of purchase. The server checks Apple's signature. It keeps the original and latest transaction
+IDs, the product, the purchase date, the expiry date, whether and when it was refunded or revoked, whether it was a test
+(sandbox) purchase, and when the record was last updated. Each time the app verifies your Pro
 status, it also sends your install ID and secret, so the purchase can be linked to this install. These
-are linked to the install IDs that use the purchase, at most 10 devices per purchase. We use this only
+are linked to the install IDs that use the purchase (with the date of each link), at most 10 devices per purchase. We use this only
 to decide how many rate alerts you can have: 1 free, up to 50 with Pro.</p>
 
 <p>Apple also notifies our server when a subscription is bought, renews, expires or is refunded
 (App Store Server Notifications). Each notice makes our server store a record of that purchase (the same
-four items above), <strong>even if you never use rate alerts</strong> and no device has linked it. These
+items as above), <strong>even if you never use rate alerts</strong> and no device has linked it. These
 notices contain no payment details. Apple's handling of purchase data is governed by the
 <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple Privacy Policy</a>.</p>
 
