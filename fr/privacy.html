@@ -32,7 +32,7 @@ Vous pouvez nous joindre à <a href="mailto:currencyconverter26@outlook.com">cur
   <li>Votre nom, votre adresse courriel, votre numéro de téléphone ou votre adresse postale (à moins que vous ne choisissiez de nous écrire par courriel, auquel cas nous recevons votre adresse courriel et ce que vous écrivez)</li>
   <li>Tout compte ou toute connexion — l’application n’en a aucun</li>
   <li>Les renseignements de carte de paiement ou de facturation</li>
-  <li>Votre position. L’application n’utilise pas les services de localisation. Votre adresse IP apparaît brièvement dans les journaux du serveur (voir la section 4), et nous ne l’utilisons pas pour savoir où vous êtes.</li>
+  <li>Votre position. L’application n’utilise pas les services de localisation. Cloudflare, notre hébergeur, traite votre adresse IP pour livrer chaque requête (voir la section 4); nous ne l’utilisons pas pour savoir où vous êtes.</li>
   <li>Les contacts, les photos, la caméra, le microphone ou les données de santé</li>
   <li>Les identifiants publicitaires (IDFA) ou tout identifiant de suivi entre applications. L’identifiant d’installation aléatoire utilisé pour les alertes de taux et les achats Pro (sections 5 et 6) est créé par l’application, n’est jamais communiqué à qui que ce soit d’autre et n’est pas utilisé à des fins de suivi.</li>
 </ul>
@@ -85,8 +85,8 @@ avez saisi dans l’application.</p>
 conserver des journaux techniques de réseau selon ses propres politiques. Nous avons désactivé les journaux automatiques par requête de notre
 Worker Cloudflare (journaux d’invocation), de sorte que les en-têtes des requêtes, y compris l’identifiant d’installation et son secret, n’y sont pas
 consignés. Les journaux que nous conservons (Cloudflare Workers Logs, quelques jours seulement) contiennent les messages propres à notre serveur,
-comme les erreurs et le nombre de lignes supprimées, qui sont écrits sans l’identifiant d’installation, le secret, le jeton de notification poussée
-ni l’adresse IP. Nous les utilisons uniquement pour exploiter et protéger le service. Pour limiter les abus, notre serveur compte brièvement les requêtes par adresse
+comme les erreurs et le nombre de lignes supprimées et, lorsqu’une alerte ne peut pas être livrée, l’identifiant aléatoire de cette alerte et l’erreur. Ces messages sont écrits sans l’identifiant d’installation, le secret, le jeton de notification poussée
+ni l’adresse IP, et l’identifiant aléatoire d’une alerte ne peut être associé à votre installation que par l’intermédiaire de notre base de données. Nous les utilisons uniquement pour exploiter et protéger le service. Pour limiter les abus, notre serveur compte brièvement les requêtes par adresse
 IP (pour IPv6, par bloc réseau /64), et ce compte n’est pas conservé. Il compte aussi, par jour, combien d’alertes de taux gratuites sont créées depuis chaque réseau (une adresse IPv4 ou un /64 IPv6). Ce compte est conservé au plus une journée, sous une empreinte à sens unique produite avec une valeur aléatoire qui change chaque jour. Le compte et cette valeur sont supprimés à la fin de la journée. Nous n’utilisons pas les journaux pour identifier qui que ce soit, ni à des fins d’analyse,
 de publicité ou de suivi, et nous ne les communiquons ni ne les vendons.</p>
 

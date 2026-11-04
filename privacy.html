@@ -32,7 +32,7 @@ You can reach us at <a href="mailto:currencyconverter26@outlook.com">currencycon
   <li>Your name, email address, phone number or postal address (unless you choose to email us, in which case we receive your email address and what you write)</li>
   <li>Any account or login — the app has none</li>
   <li>Payment card or billing information</li>
-  <li>Your location. The app does not use location services. Your IP address appears briefly in server logs (see section 4), and we do not use it to find where you are.</li>
+  <li>Your location. The app does not use location services. Cloudflare, our hosting provider, handles your IP address to deliver each request (see section 4); we do not use it to find where you are.</li>
   <li>Contacts, photos, camera, microphone or health data</li>
   <li>Advertising identifiers (IDFA) or any cross-app tracking identifier. The random install ID used for rate alerts and Pro purchases (sections 5 and 6) is created by the app, is never shared with anyone else and is not used for tracking.</li>
 </ul>
@@ -87,7 +87,7 @@ from in order to deliver it, and may keep technical network records under its ow
 turned off the automatic per-request logs of our Cloudflare Worker (invocation logs), so request
 headers, including the install ID and its secret, are not recorded in them. The logs we do keep
 (Cloudflare Workers Logs, for only a few days) hold our server's own messages, such as errors and
-counts of rows deleted, which are written without the install ID, secret, push token or IP address.
+counts of rows deleted and, when an alert cannot be delivered, that alert's random ID and the error. These messages are written without the install ID, secret, push token or IP address, and an alert's random ID can be linked to your install only through our database.
 We use them only to run and protect the service. To limit abuse, our server briefly counts requests per IP
 address (for IPv6, per /64 network block), and this count is not stored. It also counts how many free rate alerts are created from each network (an IPv4 address or an IPv6 /64) per day. That count is stored for at most a day under a one-way hash made with a random value that changes daily. The count and that value are deleted after the day. We do not use the logs to identify anyone, for analytics,
 advertising or tracking, and we do not share or sell them.</p>
