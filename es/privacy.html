@@ -112,7 +112,7 @@ se les aplica la <a href="https://www.apple.com/legal/privacy/" rel="noopener">p
 activarse. Los datos de un dispositivo que nunca permitió las notificaciones se eliminan automáticamente a los 30 días. Si
 Apple informa que un token push ya no es válido, por ejemplo porque se eliminó la app, se borran
 los datos de ese dispositivo, y un dispositivo también se elimina tras 3 fallos graves consecutivos de entrega de notificaciones push. El token push
-de un dispositivo y sus alertas se eliminan 60 días después de la última vez que se abrió la app.</p>
+de un dispositivo y sus alertas se eliminan 60 días después de la última vez que la app se registró para recibir notificaciones. La app se registra cada vez que se abre o vuelve a primer plano mientras las notificaciones están permitidas (como máximo una vez al día aproximadamente), así que con las notificaciones desactivadas los 60 días cuentan desde el último registro.</p>
 
 <p><strong>Si el servicio termina.</strong> Si dejamos de operar el servidor, por ejemplo porque la app se
 descontinúa, eliminaremos los datos que contenga, incluidas las alertas, los registros de notificaciones push, las credenciales de
@@ -187,7 +187,7 @@ descritos en las secciones 5 y 6. Contacto:
 </ul>
 
 <p><strong>Cuánto tiempo los conservamos.</strong> Como se describe en las secciones 5, 6 y 10. Las alertas permanecen hasta que las elimines (si Pro termina, las alertas que excedan el límite del plan gratuito se ponen en pausa y se eliminan 30 días después de que terminó Pro, a menos que vuelvas a Pro; se conserva tu alerta más antigua), y el token
-push de un dispositivo y sus alertas se eliminan 60 días después de la última vez que se abrió la app. Un registro de compra se conserva mientras esté
+push de un dispositivo y sus alertas se eliminan 60 días después de la última vez que la app se registró para recibir notificaciones. Un registro de compra se conserva mientras esté
 vinculado a un dispositivo, y uno sin vínculo se elimina 30 días después de que vence la compra; el registro de un reembolso se conserva.
 Ajustes → Eliminar alertas y datos del servidor elimina de inmediato tus alertas, el registro de notificaciones push, la credencial de instalación y los
 vínculos de compra, salvo el registro de un reembolso; los avisos de Apple y la siguiente verificación de Pro de la app pueden volver a almacenar un registro de compra.</p>

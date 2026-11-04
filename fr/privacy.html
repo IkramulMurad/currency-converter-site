@@ -111,7 +111,7 @@ la <a href="https://www.apple.com/legal/privacy/" rel="noopener">politique de co
 son déclenchement. Les données d’un appareil qui n’a jamais autorisé les notifications sont supprimées automatiquement après 30 jours. Si
 Apple signale qu’un jeton de notification poussée n’est plus valide, par exemple parce que l’application a été supprimée, les données de cet
 appareil sont effacées, et un appareil est aussi retiré après 3 échecs graves consécutifs de livraison de notifications poussées. Le jeton de notification
-poussée d’un appareil et ses alertes sont supprimés 60 jours après la dernière ouverture de l’application.</p>
+poussée d’un appareil et ses alertes sont supprimés 60 jours après le dernier enregistrement de l’application pour les notifications. L’application s’enregistre chaque fois qu’elle s’ouvre ou revient au premier plan tant que les notifications sont autorisées (environ une fois par jour au plus); si les notifications sont désactivées, les 60 jours courent donc à partir du dernier enregistrement.</p>
 
 <p><strong>Si le service prend fin.</strong> Si nous cessons d’exploiter le serveur, par exemple parce que l’application est
 abandonnée, nous supprimerons les données qu’il contient, y compris les alertes, les enregistrements de notifications poussées, les identifiants
@@ -186,7 +186,7 @@ décrites aux sections 5 et 6. Coordonnées&nbsp;:
 </ul>
 
 <p><strong>Durée de conservation.</strong> Comme il est décrit aux sections 5, 6 et 10. Les alertes restent jusqu’à ce que vous les supprimiez (si Pro prend fin, les alertes au-delà de la limite de l’offre gratuite sont mises en pause, puis supprimées 30 jours après la fin de Pro, à moins que vous ne repreniez Pro; votre plus ancienne alerte est conservée), et le jeton de notification
-poussée d’un appareil et ses alertes sont supprimés 60 jours après la dernière ouverture de l’application. Un enregistrement d’achat est conservé tant qu’il est associé
+poussée d’un appareil et ses alertes sont supprimés 60 jours après le dernier enregistrement de l’application pour les notifications. Un enregistrement d’achat est conservé tant qu’il est associé
 à un appareil, et un enregistrement sans lien est supprimé 30 jours après l’expiration de l’achat; l’enregistrement d’un remboursement est conservé.
 Réglages → Supprimer les alertes et les données du serveur supprime immédiatement vos alertes, votre enregistrement de notifications poussées, vos identifiants d’installation
 et vos liens d’achat, sauf l’enregistrement d’un remboursement; les avis d’Apple et la prochaine vérification de Pro par l’application peuvent stocker de nouveau un enregistrement d’achat.</p>
